@@ -26,8 +26,9 @@
   --color-inverse-border: rgba(255, 255, 255, 0.16);
   --color-inverse-border-strong: rgba(255, 255, 255, 0.3);
 
-  /* На темному фоні перевизначається на --color-accent, щоб фокус лишався контрастним */
+  /* На темному фоні обидва перевизначаються на --color-accent: синій там погано видно */
   --color-focus: var(--color-primary);
+  --color-link-hover: var(--color-primary);
 
   /* Шрифти: --font-unbounded і --font-manrope задає next/font у app/[locale]/layout.tsx */
   --font-heading: var(--font-unbounded), 'Arial Black', sans-serif;

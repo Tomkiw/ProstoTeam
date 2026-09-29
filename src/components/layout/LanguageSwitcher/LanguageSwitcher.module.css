@@ -16,6 +16,12 @@
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+/* Токен сам стає синім на світлому header і помаранчевим у темному мобільному меню */
+.link:hover {
+  color: var(--color-link-hover);
 }
 
 /* currentColor — щоб рамка працювала і на світлому header, і в темному мобільному меню */
