@@ -1,0 +1,1 @@
+export { HeroMark } from './HeroMark';

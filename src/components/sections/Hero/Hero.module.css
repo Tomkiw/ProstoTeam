@@ -2,14 +2,142 @@
   padding-block: 24px 40px;
 }
 
+.title {
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  text-wrap: balance;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.lead {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+/* Колонковий flex розтягує кнопки на всю ширину, як у макеті на 375 */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mark {
+  margin-top: 32px;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.primary {
+  background: var(--color-primary);
+}
+
+.accent {
+  background: var(--color-accent);
+}
+
 @media (min-width: 768px) {
   .hero {
     padding-block: 40px 60px;
+  }
+
+  .title {
+    max-width: 640px;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+  }
+
+  .intro {
+    gap: 28px;
+    margin-top: 20px;
+  }
+
+  .lead {
+    max-width: 560px;
+    font-size: 18px;
+  }
+
+  .actions {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .mark {
+    margin-top: 40px;
+  }
+
+  .team {
+    flex-direction: row;
+    gap: 32px;
+    margin-top: 20px;
+    font-size: 15px;
   }
 }
 
 @media (min-width: 1440px) {
   .hero {
     padding-block: 56px 80px;
+  }
+
+  .title {
+    max-width: 1100px;
+    font-size: 80px;
+    letter-spacing: -2px;
+  }
+
+  /* Лід зліва, кнопки справа — по нижньому краю */
+  .intro {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 48px;
+    margin-top: 40px;
+  }
+
+  .lead {
+    max-width: 580px;
+    font-size: 20px;
+  }
+
+  .actions {
+    flex-shrink: 0;
+  }
+
+  .mark {
+    margin-top: 48px;
+  }
+
+  .team {
+    display: none;
   }
 }
