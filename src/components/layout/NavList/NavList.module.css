@@ -1,0 +1,56 @@
+/* Ховер «крапка з лого»: перед словом з'являється помаранчевий кружечок, текст колір не змінює */
+.link {
+  position: relative;
+  text-decoration: none;
+}
+
+/* Розмір в em — кружечок масштабується разом із текстом: 16px у header, 36px у меню на 768 */
+.link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  background: var(--color-accent);
+  transform: translateY(-50%) scale(0);
+  transition: transform 300ms var(--ease-pop);
+  pointer-events: none;
+}
+
+.label {
+  display: inline-block;
+}
+
+/* Рядок: кружечок стоїть у проміжку перед словом, текст не зсувається */
+.inline .link::before {
+  left: -0.95em;
+}
+
+/* Список у мобільному меню: ліворуч немає місця, тож кружечок стає на місце слова, а слово від'їжджає */
+.stacked .link::before {
+  left: 0;
+}
+
+.stacked .label {
+  transition: transform 300ms var(--ease-out);
+}
+
+.link:focus-visible::before {
+  transform: translateY(-50%) scale(1);
+}
+
+.stacked .link:focus-visible .label {
+  transform: translateX(0.9em);
+}
+
+/* Лише для мишки: на телефоні після тапу ефект не «залипає» */
+@media (hover: hover) {
+  .link:hover::before {
+    transform: translateY(-50%) scale(1);
+  }
+
+  .stacked .link:hover .label {
+    transform: translateX(0.9em);
+  }
+}

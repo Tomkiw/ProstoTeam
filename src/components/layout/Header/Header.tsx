@@ -22,7 +22,7 @@ export function Header() {
         <Logo />
 
         <nav aria-label={t('nav.label')} className={styles.desktopNav}>
-          <NavList className={styles.navList} linkClassName={styles.navLink} />
+          <NavList className={styles.navList} />
         </nav>
 
         <div className={styles.actions}>

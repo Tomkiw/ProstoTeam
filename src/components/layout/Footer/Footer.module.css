@@ -24,15 +24,6 @@
   font-weight: 700;
 }
 
-.navLink {
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.navLink:hover {
-  color: var(--color-link-hover);
-}
-
 .copyright {
   font-size: 13px;
   color: var(--color-inverse-text-muted);

@@ -1,4 +1,6 @@
-import type { ComponentProps, ReactNode } from 'react';
+'use client';
+
+import type { ComponentProps, FocusEvent, PointerEvent, ReactNode } from 'react';
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/cn';
 import styles from './Button.module.css';
@@ -29,6 +31,27 @@ type ButtonAsButtonProps = BaseButtonProps & {
 
 type ButtonProps = ButtonAsLinkProps | ButtonAsButtonProps;
 
+// Коло заливки росте з точки, де курсор увійшов у кнопку, і стискається туди, де вийшов.
+function setFillOrigin(event: PointerEvent<HTMLElement>) {
+  const target = event.currentTarget;
+  const rect = target.getBoundingClientRect();
+  target.style.setProperty('--fill-x', `${event.clientX - rect.left}px`);
+  target.style.setProperty('--fill-y', `${event.clientY - rect.top}px`);
+}
+
+// З клавіатури курсора немає — коло росте з центру (значення за замовчуванням у CSS).
+function resetFillOrigin(event: FocusEvent<HTMLElement>) {
+  if (!event.currentTarget.matches(':focus-visible')) return;
+  event.currentTarget.style.removeProperty('--fill-x');
+  event.currentTarget.style.removeProperty('--fill-y');
+}
+
+const FILL_HANDLERS = {
+  onPointerEnter: setFillOrigin,
+  onPointerLeave: setFillOrigin,
+  onFocus: resetFillOrigin,
+};
+
 /** З `href` рендериться посиланням (з урахуванням мови), без — звичайною кнопкою. */
 export function Button(props: ButtonProps) {
   const {
@@ -49,7 +72,7 @@ export function Button(props: ButtonProps) {
 
   if (props.href !== undefined) {
     return (
-      <Link href={props.href} className={classes} onClick={onClick}>
+      <Link href={props.href} className={classes} onClick={onClick} {...FILL_HANDLERS}>
         {children}
       </Link>
     );
@@ -61,6 +84,7 @@ export function Button(props: ButtonProps) {
       disabled={props.disabled}
       className={classes}
       onClick={onClick}
+      {...FILL_HANDLERS}
     >
       {children}
     </button>

@@ -90,6 +90,7 @@ export function MobileMenu() {
 
         <nav aria-label={t('nav.label')}>
           <NavList
+            variant="stacked"
             linkClassName={styles.navLink}
             className={styles.navList}
             onNavigate={handleClose}

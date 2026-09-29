@@ -1,4 +1,7 @@
 .button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -7,6 +10,45 @@
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
+  transition: color 500ms var(--ease-out);
+}
+
+/*
+ * Ховер «коло від курсора»: --fill-x / --fill-y ставить Button.tsx.
+ * Коло в 2.6 ширини кнопки накриває її з будь-якої точки входу.
+ */
+.button::before {
+  content: '';
+  position: absolute;
+  top: var(--fill-y, 50%);
+  left: var(--fill-x, 50%);
+  z-index: -1;
+  width: 260%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--button-fill);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 500ms var(--ease-out);
+  pointer-events: none;
+}
+
+.button:focus-visible {
+  color: var(--button-fill-text);
+}
+
+.button:focus-visible::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Лише для мишки: на телефоні після тапу заливка не «залипає» */
+@media (hover: hover) {
+  .button:not(:disabled):hover {
+    color: var(--button-fill-text);
+  }
+
+  .button:not(:disabled):hover::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 .button:disabled {
@@ -15,19 +57,29 @@
 }
 
 .primary {
+  --button-fill: var(--color-contrast-fill);
+  --button-fill-text: var(--color-contrast-fill-text);
+
   background: var(--color-accent);
   color: var(--color-text);
   font-weight: 800;
 }
 
+/* Рамка фіксованого кольору: на ховері текст біліє, а рамка має лишитися темною */
 .outline {
-  border: 1.5px solid currentColor;
+  --button-fill: var(--color-contrast-fill);
+  --button-fill-text: var(--color-contrast-fill-text);
+
+  border: 1.5px solid var(--color-text);
   background: transparent;
   color: var(--color-text);
   font-weight: 700;
 }
 
 .dark {
+  --button-fill: var(--color-accent);
+  --button-fill-text: var(--color-text);
+
   background: var(--color-text);
   color: var(--color-surface);
   font-weight: 800;
