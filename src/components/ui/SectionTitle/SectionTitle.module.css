@@ -1,0 +1,27 @@
+.title {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 36px;
+    line-height: 1.15;
+    letter-spacing: -1px;
+  }
+}
+
+/* До 1440 розміри однакові, тож варіанти розходяться лише тут */
+@media (min-width: 1440px) {
+  .md {
+    font-size: 44px;
+  }
+
+  .lg {
+    font-size: 52px;
+    line-height: 1.1;
+  }
+}
