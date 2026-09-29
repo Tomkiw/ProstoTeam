@@ -1,0 +1,15 @@
+.section {
+  --color-focus: var(--color-accent);
+
+  /* Знизу без відступу: темний фон продовжується у footer */
+  padding-block: var(--section-padding-block) 0;
+  background: var(--color-inverse-bg);
+  color: var(--color-inverse-text);
+}
+
+.channels {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-block: 24px;
+}

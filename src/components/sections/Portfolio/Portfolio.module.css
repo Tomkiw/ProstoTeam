@@ -1,0 +1,11 @@
+.section {
+  padding-block: var(--section-padding-block);
+  background: var(--color-surface);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 24px;
+}

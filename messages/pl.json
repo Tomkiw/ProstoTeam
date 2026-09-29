@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "title": "PROSTO — studio webowe",
+    "description": "Tworzymy strony, które po prostu działają: landing page, strony firmowe, sklepy internetowe i boty Telegram."
+  },
+  "common": {
+    "homeLabel": "PROSTO, strona główna",
+    "discussProject": "Omówmy projekt"
+  },
+  "nav": {
+    "label": "Menu główne",
+    "footerLabel": "Menu w stopce",
+    "about": "O nas",
+    "services": "Usługi",
+    "portfolio": "Realizacje",
+    "process": "Jak pracujemy",
+    "contacts": "Kontakt"
+  },
+  "header": {
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu"
+  },
+  "languageSwitcher": {
+    "label": "Wybierz język"
+  },
+  "hero": {
+    "title": "Tworzymy strony, które po prostu działają",
+    "lead": "Jesteśmy dwuosobowym zespołem. Tworzymy landing page, strony firmowe, sklepy internetowe i boty Telegram: od pierwszej rozmowy po uruchomienie i wsparcie.",
+    "secondaryCta": "Zobacz realizacje"
+  },
+  "about": {
+    "title": "Dwuosobowy zespół zamiast całej agencji",
+    "lead": "Piszesz bezpośrednio do osób, które tworzą Twoją stronę. Bez pośredników i zbędnych uzgodnień.",
+    "features": {
+      "noJargon": {
+        "title": "Tłumaczymy bez żargonu",
+        "text": "Rozmawiamy o Twoim biznesie i klientach, a nie o frameworkach."
+      },
+      "handover": {
+        "title": "Wszystko należy do Ciebie",
+        "text": "Kod, domenę, hosting i dostępy rejestrujemy na Ciebie."
+      }
+    }
+  },
+  "services": {
+    "title": "Co robimy",
+    "note": "Ceny i terminy są orientacyjne. Dokładną kwotę podajemy po rozmowie.",
+    "columns": {
+      "service": "Usługa",
+      "includes": "Co obejmuje",
+      "duration": "Termin",
+      "price": "Cena"
+    }
+  },
+  "portfolio": {
+    "title": "Nasze realizacje",
+    "note": "Projekty, które zrobiliśmy sami. Wszystkie działają na żywo.",
+    "kinds": {
+      "website": "Strona internetowa",
+      "webapp": "Aplikacja webowa",
+      "shop": "Sklep internetowy",
+      "telegramBot": "Bot Telegram"
+    },
+    "inDevelopment": "W trakcie realizacji",
+    "screenshotAlt": "Zrzut ekranu {title}",
+    "openSite": "Otwórz stronę",
+    "openBot": "Otwórz bota"
+  },
+  "process": {
+    "title": "Jak pracujemy",
+    "steps": {
+      "talk": {
+        "title": "Rozmowa",
+        "text": "Dowiadujemy się, czym się zajmujesz, dla kogo jest strona i jaki masz budżet."
+      },
+      "structure": {
+        "title": "Struktura",
+        "text": "Uzgadniamy plan podstron jeszcze przed projektem graficznym."
+      },
+      "build": {
+        "title": "Projekt i programowanie",
+        "text": "Zaczynamy od wersji na telefon. Pokazujemy wersje robocze."
+      },
+      "launch": {
+        "title": "Uruchomienie",
+        "text": "Podłączamy domenę, hosting, formularze zgłoszeń i analitykę."
+      },
+      "support": {
+        "title": "Wsparcie",
+        "text": "Po uruchomieniu aktualizujemy i rozwijamy stronę."
+      }
+    }
+  },
+  "contacts": {
+    "title": "Opowiedz, jakiej strony potrzebujesz",
+    "responseTime": "Odpowiemy w ciągu [N] godzin w dni robocze.",
+    "channels": {
+      "telegram": "Telegram",
+      "email": "E-mail",
+      "phone": "Telefon"
+    }
+  },
+  "contactForm": {
+    "title": "Zapytanie o stronę",
+    "nameLabel": "Imię *",
+    "namePlaceholder": "Jak mamy się do Ciebie zwracać",
+    "contactLabel": "Telefon lub Telegram *",
+    "contactPlaceholder": "+48 000 000 000 lub @nazwa",
+    "serviceLabel": "Czego potrzebujesz",
+    "servicePlaceholder": "Wybierz usługę",
+    "otherService": "Inne",
+    "messageLabel": "Krótko o projekcie",
+    "messagePlaceholder": "Czym się zajmujesz, co ma umieć strona, jakie strony Ci się podobają",
+    "submit": "Wyślij zapytanie",
+    "consent": "* Pola obowiązkowe. Wysyłając zapytanie, akceptujesz <link>politykę prywatności</link>."
+  },
+  "privacy": {
+    "title": "Polityka prywatności",
+    "stub": "Strona w przygotowaniu. Treść polityki pojawi się wkrótce."
+  },
+  "notFound": {
+    "title": "Nie znaleziono strony",
+    "text": "Adres mógł zostać wpisany z błędem lub strona została przeniesiona.",
+    "backHome": "Wróć na stronę główną"
+  }
+}

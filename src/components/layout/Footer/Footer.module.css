@@ -1,0 +1,64 @@
+.footer {
+  --color-focus: var(--color-accent);
+
+  padding-block: 48px 32px;
+  background: var(--color-inverse-bg);
+  color: var(--color-inverse-text);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-inverse-border);
+}
+
+.navList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.navLink {
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: var(--color-accent);
+}
+
+.copyright {
+  font-size: 13px;
+  color: var(--color-inverse-text-muted);
+}
+
+@media (min-width: 1440px) {
+  .footer {
+    padding-block: 96px 48px;
+  }
+
+  .inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding-top: 40px;
+  }
+
+  /* Подвійний селектор перебиває font-size з Logo.module.css незалежно від порядку підключення CSS */
+  .inner .logo {
+    font-size: 24px;
+  }
+
+  .navList {
+    gap: 32px;
+  }
+
+  .copyright {
+    font-size: 14px;
+  }
+}

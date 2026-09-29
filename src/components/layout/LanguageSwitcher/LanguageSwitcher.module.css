@@ -1,0 +1,24 @@
+.list {
+  display: flex;
+  gap: 4px;
+}
+
+/* 44px — мінімальна зона дотику для пальця */
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding-inline: 8px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* currentColor — щоб рамка працювала і на світлому header, і в темному мобільному меню */
+.current {
+  border-color: currentColor;
+}

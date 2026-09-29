@@ -1,0 +1,152 @@
+/*
+ * Дизайн-токени PROSTO. Макет mobile-first: 375 → 768 → 1440.
+ * У медіазапитах CSS-змінні не працюють, тому брейкпоінти пишемо числами:
+ *   tablet  — @media (min-width: 768px)
+ *   desktop — @media (min-width: 1440px)
+ */
+:root {
+  /* Кольори */
+  --color-bg: #f2f3f5;
+  --color-surface: #ffffff;
+  --color-text: #1b2130;
+  --color-text-muted: #4a5263;
+  --color-primary: #2f4bff;
+  --color-accent: #ff7a1a;
+  --color-accent-soft: #ffe9d9;
+  --color-border: #c9ced8;
+  --color-border-strong: #8a93a5;
+  --color-placeholder: #e8ebf0;
+  --color-placeholder-border: #d5d9e0;
+
+  /* Темні блоки: мобільне меню, контакти, footer */
+  --color-inverse-bg: #1b2130;
+  --color-inverse-text: #ffffff;
+  --color-inverse-text-soft: #c4cad6;
+  --color-inverse-text-muted: #aeb5c4;
+  --color-inverse-border: rgba(255, 255, 255, 0.16);
+  --color-inverse-border-strong: rgba(255, 255, 255, 0.3);
+
+  /* На темному фоні перевизначається на --color-accent, щоб фокус лишався контрастним */
+  --color-focus: var(--color-primary);
+
+  /* Шрифти: --font-unbounded і --font-manrope задає next/font у app/[locale]/layout.tsx */
+  --font-heading: var(--font-unbounded), 'Arial Black', sans-serif;
+  --font-body: var(--font-manrope), system-ui, sans-serif;
+
+  /* Сітка й відступи */
+  --container-max-width: 1440px;
+  --container-padding: 20px;
+  --header-padding-block: 16px;
+  --section-padding-block: 40px;
+  --grid-gap: 24px;
+
+  /* Радіуси */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  --transition-fast: 150ms ease;
+  --z-mobile-menu: 100;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 32px;
+    --header-padding-block: 20px;
+    --section-padding-block: 60px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container-padding: 80px;
+    --header-padding-block: 28px;
+    --section-padding-block: 80px;
+  }
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+}
+
+ul[class],
+ol[class] {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+/* Інакше display: flex у CSS-модулі перебиває атрибут hidden */
+[hidden] {
+  display: none !important;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* Текст для скрінрідерів, невидимий на екрані */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,65 @@
+import type { Metadata } from 'next';
+import { Manrope, Unbounded } from 'next/font/google';
+import { NextIntlClientProvider } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import type { ReactNode } from 'react';
+import { Footer } from '@/components/layout/Footer';
+import { Header } from '@/components/layout/Header';
+import { initRequestLocale } from '@/i18n/initRequestLocale';
+import { routing } from '@/i18n/routing';
+import { BRAND_NAME } from '@/lib/constants';
+import { cn } from '@/lib/cn';
+import type { LocaleParams } from '@/types/i18n';
+import '../globals.css';
+
+// latin-ext — для польських ą ę ł ż, cyrillic — для української.
+const manrope = Manrope({
+  subsets: ['latin', 'latin-ext', 'cyrillic'],
+  variable: '--font-manrope',
+  display: 'swap',
+});
+
+const unbounded = Unbounded({
+  subsets: ['latin', 'latin-ext', 'cyrillic'],
+  variable: '--font-unbounded',
+  display: 'swap',
+});
+
+type LocaleLayoutProps = {
+  children: ReactNode;
+  params: LocaleParams;
+};
+
+type LocaleMetadataProps = {
+  params: LocaleParams;
+};
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: LocaleMetadataProps): Promise<Metadata> {
+  const locale = await initRequestLocale(params);
+  const t = await getTranslations({ locale, namespace: 'metadata' });
+
+  return {
+    title: { default: t('title'), template: `%s — ${BRAND_NAME}` },
+    description: t('description'),
+  };
+}
+
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
+  const locale = await initRequestLocale(params);
+
+  return (
+    <html lang={locale} className={cn(manrope.variable, unbounded.variable)}>
+      <body>
+        <NextIntlClientProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}
