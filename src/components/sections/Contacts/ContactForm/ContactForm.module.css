@@ -1,0 +1,13 @@
+.card {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+@media (min-width: 1440px) {
+  .card {
+    padding: 40px;
+    border-radius: var(--radius-xl);
+  }
+}

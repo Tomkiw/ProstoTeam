@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "title": "PROSTO — web studio",
+    "description": "We build websites that simply work: landing pages, business websites, online stores and Telegram bots."
+  },
+  "common": {
+    "homeLabel": "PROSTO, go to homepage",
+    "discussProject": "Discuss a project"
+  },
+  "nav": {
+    "label": "Main navigation",
+    "footerLabel": "Footer navigation",
+    "about": "About us",
+    "services": "Services",
+    "portfolio": "Work",
+    "process": "How we work",
+    "contacts": "Contacts"
+  },
+  "header": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "languageSwitcher": {
+    "label": "Choose language"
+  },
+  "hero": {
+    "title": "We build websites that simply work",
+    "lead": "We're a team of two. We build landing pages, business websites, online stores and Telegram bots — from the first call to launch and support.",
+    "secondaryCta": "See our work"
+  },
+  "about": {
+    "title": "Two developers instead of a whole agency",
+    "lead": "You talk directly to the people building your website. No middlemen, no endless approvals.",
+    "features": {
+      "noJargon": {
+        "title": "We explain without jargon",
+        "text": "We talk about your business and customers, not frameworks."
+      },
+      "handover": {
+        "title": "Everything is yours",
+        "text": "Code, domain, hosting and all access are registered in your name."
+      }
+    }
+  },
+  "services": {
+    "title": "What we do",
+    "note": "Prices and timelines are approximate. We'll give you an exact quote after a call.",
+    "columns": {
+      "service": "Service",
+      "includes": "What's included",
+      "duration": "Timeline",
+      "price": "Price"
+    }
+  },
+  "portfolio": {
+    "title": "Our work",
+    "note": "Projects we built ourselves. All of them are live.",
+    "kinds": {
+      "website": "Website",
+      "webapp": "Web app",
+      "shop": "Online store",
+      "telegramBot": "Telegram bot"
+    },
+    "inDevelopment": "In development",
+    "screenshotAlt": "Screenshot of {title}",
+    "openSite": "Visit website",
+    "openBot": "Open bot"
+  },
+  "process": {
+    "title": "How we work",
+    "steps": {
+      "talk": {
+        "title": "Call",
+        "text": "We learn what you do, who the website is for and what your budget is."
+      },
+      "structure": {
+        "title": "Structure",
+        "text": "We agree on the page plan before any design work."
+      },
+      "build": {
+        "title": "Design & development",
+        "text": "We build for phones first and show you work in progress."
+      },
+      "launch": {
+        "title": "Launch",
+        "text": "We set up the domain, hosting, request forms and analytics."
+      },
+      "support": {
+        "title": "Support",
+        "text": "After launch, we keep updating and improving your website."
+      }
+    }
+  },
+  "contacts": {
+    "title": "Tell us what website you need",
+    "responseTime": "We'll reply within [N] hours on business days.",
+    "channels": {
+      "telegram": "Telegram",
+      "email": "Email",
+      "phone": "Phone"
+    }
+  },
+  "contactForm": {
+    "title": "Website request",
+    "nameLabel": "Name *",
+    "namePlaceholder": "What should we call you?",
+    "contactLabel": "Phone or Telegram *",
+    "contactPlaceholder": "+48 000 000 000 or @username",
+    "serviceLabel": "What do you need",
+    "servicePlaceholder": "Choose a service",
+    "otherService": "Other",
+    "messageLabel": "About your project",
+    "messagePlaceholder": "What you do, what the website should do, which websites you like",
+    "submit": "Send request",
+    "consent": "* Required fields. By sending a request, you agree to our <link>privacy policy</link>."
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "stub": "This page is in progress. The policy text will be available soon."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The address may be mistyped, or the page has moved.",
+    "backHome": "Back to homepage"
+  }
+}

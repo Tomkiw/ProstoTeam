@@ -1,0 +1,22 @@
+export const BRAND_NAME = 'PROSTO';
+
+/** id секцій — це якорі в URL (/en#services), тому не перейменовувати без потреби. */
+export const SECTION_IDS = {
+  hero: 'top',
+  about: 'about',
+  services: 'services',
+  portfolio: 'portfolio',
+  process: 'process',
+  contacts: 'contacts',
+} as const;
+
+export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS];
+
+/** Пункти меню в header, мобільному меню й footer — у порядку макета. Ключі збігаються з nav.* у перекладах. */
+export const NAV_SECTIONS = [
+  SECTION_IDS.about,
+  SECTION_IDS.services,
+  SECTION_IDS.portfolio,
+  SECTION_IDS.process,
+  SECTION_IDS.contacts,
+] as const;

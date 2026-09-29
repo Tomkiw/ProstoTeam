@@ -1,0 +1,5 @@
+package-lock.json
+
+# Керуються самим Next.js: `next dev` дописує в них свій блок
+AGENTS.md
+CLAUDE.md

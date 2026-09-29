@@ -1,0 +1,48 @@
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+
+.dark {
+  color: var(--color-text);
+}
+
+.light {
+  color: var(--color-inverse-text);
+}
+
+/* 0.6em тримає пропорцію з макета: 13px кружечок при 22px, 17px при 28px */
+.dot {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: 2px;
+  border-radius: 50%;
+}
+
+.dotPrimary {
+  margin-right: 2px;
+  background: var(--color-primary);
+}
+
+.dotAccent {
+  background: var(--color-accent);
+}
+
+@media (min-width: 768px) {
+  .logo {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .logo {
+    font-size: 28px;
+  }
+}
