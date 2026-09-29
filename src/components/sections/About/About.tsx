@@ -1,5 +1,6 @@
 import { useLocale, useTranslations } from 'next-intl';
 import { Container } from '@/components/ui/Container';
+import { SectionTitle } from '@/components/ui/SectionTitle';
 import { TEAM } from '@/data/team';
 import { SECTION_IDS } from '@/lib/constants';
 import styles from './About.module.css';
@@ -12,7 +13,7 @@ export function About() {
   return (
     <section id={SECTION_IDS.about} className={styles.section}>
       <Container>
-        <h2>{t('title')}</h2>
+        <SectionTitle>{t('title')}</SectionTitle>
         <ul className={styles.team}>
           {TEAM.map((member) => (
             <li key={member.id}>
