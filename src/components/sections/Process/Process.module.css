@@ -3,8 +3,100 @@
 }
 
 .steps {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 24px;
+  margin-top: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Номер зліва на обидва рядки, праворуч назва й текст */
+.step {
+  display: grid;
+  grid-template-areas:
+    'number title'
+    'number text';
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 4px 12px;
+  padding-block: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.number {
+  grid-area: number;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+
+.title {
+  grid-area: title;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.text {
+  grid-area: text;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .steps {
+    margin-top: 28px;
+  }
+
+  /* Номер, назва й текст в один рядок */
+  .step {
+    grid-template-areas: 'number title text';
+    grid-template-columns: 64px 200px minmax(0, 1fr);
+    column-gap: 24px;
+    align-items: baseline;
+    padding-block: 20px;
+  }
+
+  .number {
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  .title {
+    font-size: 19px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1440px) {
+  /* П'ять кроків у ряд, над кожним — темна лінія */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: 24px;
+    margin-top: 48px;
+    border-bottom: none;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-block: 24px 0;
+    border-top: 2px solid var(--color-text);
+  }
+
+  .number {
+    font-size: 48px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .text {
+    line-height: 1.6;
+  }
 }
