@@ -20,7 +20,7 @@ export function Logo({ tone = 'dark', className, onClick }: LogoProps) {
 
   return (
     <Link
-      href={getSectionHref(SECTION_IDS.hero)}
+      href={getSectionHref(SECTION_IDS.top)}
       aria-label={t('homeLabel')}
       className={cn(styles.logo, styles[tone], className)}
       onClick={onClick}

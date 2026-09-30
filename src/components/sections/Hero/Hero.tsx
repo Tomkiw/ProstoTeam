@@ -14,7 +14,7 @@ export function Hero() {
   const locale = useLocale();
 
   return (
-    <section id={SECTION_IDS.hero} className={styles.hero}>
+    <section className={styles.hero}>
       <Container>
         <h1 className={styles.title}>{t('hero.title')}</h1>
 

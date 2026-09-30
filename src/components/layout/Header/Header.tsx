@@ -17,7 +17,7 @@ export function Header() {
   const t = useTranslations();
 
   return (
-    <header className={styles.header}>
+    <header id={SECTION_IDS.top} className={styles.header}>
       <Container className={styles.inner}>
         <Logo />
 

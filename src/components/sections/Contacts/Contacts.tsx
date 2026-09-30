@@ -1,27 +1,43 @@
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Container } from '@/components/ui/Container';
+import { SectionTitle } from '@/components/ui/SectionTitle';
 import { CONTACTS } from '@/data/contacts';
+import { SERVICES } from '@/data/services';
 import { SECTION_IDS } from '@/lib/constants';
 import { ContactForm } from './ContactForm';
 import styles from './Contacts.module.css';
 
-// Заглушка. Макет: m-contacts / t-contacts / d-contacts (темний фон переходить у footer).
+/** Контакти й форма заявки; темний фон продовжується у footer. Макет: *-contacts. */
 export function Contacts() {
   const t = useTranslations('contacts');
+  const locale = useLocale();
+  const serviceOptions = SERVICES.map((service) => ({
+    value: service.id,
+    label: service.title[locale],
+  }));
 
   return (
     <section id={SECTION_IDS.contacts} className={styles.section}>
-      <Container>
-        <h2>{t('title')}</h2>
-        <p>{t('responseTime')}</p>
-        <ul className={styles.channels}>
-          {CONTACTS.map((contact) => (
-            <li key={contact.channel}>
-              {t(`channels.${contact.channel}`)}: <a href={contact.href}>{contact.value}</a>
-            </li>
-          ))}
-        </ul>
-        <ContactForm />
+      <Container className={styles.inner}>
+        <div className={styles.intro}>
+          <SectionTitle size="lg" className={styles.title}>
+            {t('title')}
+          </SectionTitle>
+          <p className={styles.responseTime}>{t('responseTime')}</p>
+          <ul className={styles.channels}>
+            {CONTACTS.map((contact) => (
+              <li key={contact.channel} className={styles.channel}>
+                <span className={styles.channelLabel}>{t(`channels.${contact.channel}`)}</span>
+                <a href={contact.href} className={styles.channelLink}>
+                  {contact.value}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.form}>
+          <ContactForm serviceOptions={serviceOptions} />
+        </div>
       </Container>
     </section>
   );

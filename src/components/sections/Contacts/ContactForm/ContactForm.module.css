@@ -1,13 +1,176 @@
+/* Світла картка на темному фоні секції: повертаємо світлі кольори фокуса й ховера */
 .card {
+  --color-focus: var(--color-primary);
+  --color-link-hover: var(--color-primary);
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   padding: 20px;
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   color: var(--color-text);
 }
 
+.title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Ім'я й контакт: на 375 одне під одним, з 768 — в один ряд */
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 16px — щоб iOS не збільшував сторінку при фокусі на полі */
+.control {
+  width: 100%;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-size: 16px;
+}
+
+.control[aria-invalid='true'] {
+  border-color: var(--color-error);
+}
+
+.input,
+.select {
+  height: 52px;
+  padding-inline: 14px;
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+/* Рідну стрілку прибираємо — замість неї своя, як у макеті */
+.select {
+  padding-right: 44px;
+  appearance: none;
+}
+
+.chevron {
+  position: absolute;
+  top: 16px;
+  right: 14px;
+  pointer-events: none;
+}
+
+.textarea {
+  padding: 12px 14px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.fieldError {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-error);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.consent {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.consentLink {
+  font-weight: 700;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+}
+
+.success,
+.error {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.error {
+  color: var(--color-error);
+}
+
+@media (hover: hover) {
+  .consentLink:hover {
+    color: var(--color-link-hover);
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    gap: 20px;
+    padding: 32px;
+    border-radius: var(--radius-xl);
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .input,
+  .select {
+    padding-inline: 16px;
+  }
+
+  .select {
+    padding-right: 48px;
+  }
+
+  .chevron {
+    right: 16px;
+  }
+
+  .textarea {
+    padding: 14px 16px;
+  }
+
+  /* Кнопка зліва, згода справа */
+  .actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .submit {
+    flex-shrink: 0;
+  }
+
+  .consent {
+    font-size: 13px;
+  }
+}
+
 @media (min-width: 1440px) {
   .card {
+    gap: 24px;
     padding: 40px;
-    border-radius: var(--radius-xl);
   }
 }

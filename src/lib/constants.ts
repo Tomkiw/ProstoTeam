@@ -5,7 +5,8 @@ export const DESKTOP_MEDIA_QUERY = '(min-width: 1440px)';
 
 /** id секцій — це якорі в URL (/en#services), тому не перейменовувати без потреби. */
 export const SECTION_IDS = {
-  hero: 'top',
+  /** Верх сторінки — сам header: лого веде сюди, і хедер лишається на екрані. */
+  top: 'top',
   about: 'about',
   services: 'services',
   portfolio: 'portfolio',
