@@ -32,7 +32,7 @@ export const TEAM: TeamMember[] = [
       pl: 'Pisze zarówno część kliencką, jak i serwerową: proponuje pomysły i zamienia je w działającą stronę.',
       uk: 'Пише і клієнтську, і серверну частину: пропонує ідеї та доводить їх до робочого сайту.',
     },
-    stack: ['Next.js', 'React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
+    stack: ['Next.js', 'React', 'TypeScript', 'JavaScript', 'Node.js', 'MongoDB', 'HTML', 'CSS'],
     color: 'accent',
   },
 ];
