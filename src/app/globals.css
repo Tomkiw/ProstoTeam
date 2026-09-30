@@ -17,6 +17,8 @@
   --color-border-strong: #8a93a5;
   --color-placeholder: #e8ebf0;
   --color-placeholder-border: #d5d9e0;
+  /* Помилки у формі: контраст 5.6:1 на білому */
+  --color-error: #c62828;
 
   /* Темні блоки: мобільне меню, контакти, footer */
   --color-inverse-bg: #1b2130;

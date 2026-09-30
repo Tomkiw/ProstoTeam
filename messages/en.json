@@ -112,7 +112,14 @@
     "messageLabel": "About your project",
     "messagePlaceholder": "What you do, what the website should do, which websites you like",
     "submit": "Send request",
-    "consent": "* Required fields. By sending a request, you agree to our <link>privacy policy</link>."
+    "consent": "* Required fields. By sending a request, you agree to our <link>privacy policy</link>.",
+    "sending": "Sending…",
+    "success": "Thank you! We've got your request and will be in touch soon.",
+    "error": "We couldn't send your request. Please try again or message us on Telegram.",
+    "errors": {
+      "name": "Please tell us what to call you",
+      "contact": "Please add your phone number or Telegram"
+    }
   },
   "privacy": {
     "title": "Privacy policy",

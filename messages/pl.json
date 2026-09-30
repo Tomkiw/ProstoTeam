@@ -112,7 +112,14 @@
     "messageLabel": "Krótko o projekcie",
     "messagePlaceholder": "Czym się zajmujesz, co ma umieć strona, jakie strony Ci się podobają",
     "submit": "Wyślij zapytanie",
-    "consent": "* Pola obowiązkowe. Wysyłając zapytanie, akceptujesz <link>politykę prywatności</link>."
+    "consent": "* Pola obowiązkowe. Wysyłając zapytanie, akceptujesz <link>politykę prywatności</link>.",
+    "sending": "Wysyłamy…",
+    "success": "Dziękujemy! Mamy Twoje zapytanie i wkrótce się odezwiemy.",
+    "error": "Nie udało się wysłać zapytania. Spróbuj ponownie lub napisz do nas na Telegramie.",
+    "errors": {
+      "name": "Podaj, jak mamy się do Ciebie zwracać",
+      "contact": "Podaj numer telefonu lub Telegram"
+    }
   },
   "privacy": {
     "title": "Polityka prywatności",
