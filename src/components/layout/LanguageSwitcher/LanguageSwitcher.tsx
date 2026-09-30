@@ -1,6 +1,7 @@
 'use client';
 
 import { type Locale, useLocale, useTranslations } from 'next-intl';
+import { type FocusEvent, useState } from 'react';
 import { Link, usePathname } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { cn } from '@/lib/cn';
@@ -30,30 +31,49 @@ export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
   const currentLocale = useLocale();
   // Шлях без мовного префікса: з /pl/privacy перемикаємось на /uk/privacy, а не на головну.
   const pathname = usePathname();
+  // Мова, під якою стоїть пігулка: наведена чи у фокусі, інакше — активна.
+  const [highlightedLocale, setHighlightedLocale] = useState<Locale>(currentLocale);
+  const pillIndex = routing.locales.indexOf(highlightedLocale);
+
+  const handleReset = () => setHighlightedLocale(currentLocale);
+
+  const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget)) handleReset();
+  };
 
   return (
     <nav aria-label={t('label')} className={className}>
-      <ul className={styles.list}>
-        {routing.locales.map((locale) => {
-          const isCurrent = locale === currentLocale;
+      <div
+        className={styles.switcher}
+        style={{ '--pill-index': pillIndex }}
+        onPointerLeave={handleReset}
+        onBlur={handleBlur}
+      >
+        <span className={styles.pill} aria-hidden="true" />
+        <ul className={styles.list}>
+          {routing.locales.map((locale) => {
+            const isCurrent = locale === currentLocale;
 
-          return (
-            <li key={locale}>
-              <Link
-                href={pathname}
-                locale={locale}
-                hrefLang={locale}
-                lang={locale}
-                aria-current={isCurrent ? 'true' : undefined}
-                className={cn(styles.link, isCurrent && styles.current)}
-              >
-                <span aria-hidden="true">{LOCALE_LABELS[locale]}</span>
-                <span className="visually-hidden">{LOCALE_NAMES[locale]}</span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+            return (
+              <li key={locale}>
+                <Link
+                  href={pathname}
+                  locale={locale}
+                  hrefLang={locale}
+                  lang={locale}
+                  aria-current={isCurrent ? 'true' : undefined}
+                  className={cn(styles.link, locale === highlightedLocale && styles.highlighted)}
+                  onPointerEnter={() => setHighlightedLocale(locale)}
+                  onFocus={() => setHighlightedLocale(locale)}
+                >
+                  <span aria-hidden="true">{LOCALE_LABELS[locale]}</span>
+                  <span className="visually-hidden">{LOCALE_NAMES[locale]}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </nav>
   );
 }

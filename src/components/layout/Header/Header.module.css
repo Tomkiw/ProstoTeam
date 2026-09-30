@@ -22,14 +22,6 @@
   font-weight: 700;
 }
 
-.navLink {
-  text-decoration: none;
-}
-
-.navLink:hover {
-  color: var(--color-primary);
-}
-
 .actions {
   display: flex;
   align-items: center;

@@ -1,24 +1,52 @@
-.list {
-  display: flex;
-  gap: 4px;
+/* 44px — мінімальна зона дотику для пальця */
+.switcher {
+  --item-size: 44px;
+  --item-gap: 4px;
+
+  position: relative;
+  display: inline-flex;
 }
 
-/* 44px — мінімальна зона дотику для пальця */
+/*
+ * Одна пігулка їздить під наведену мову й повертається до активної.
+ * Позиція — з індексу (--pill-index ставить LanguageSwitcher.tsx), тож вона правильна
+ * вже в серверному HTML, без вимірювання елементів.
+ */
+.pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--item-size);
+  height: var(--item-size);
+  border-radius: var(--radius-pill);
+  background: var(--color-contrast-fill);
+  transform: translateX(calc(var(--pill-index, 0) * (var(--item-size) + var(--item-gap))));
+  transition: transform 350ms var(--ease-out);
+  pointer-events: none;
+}
+
+.list {
+  display: flex;
+  gap: var(--item-gap);
+}
+
+/* Фіксована ширина: пігулка рахує позицію як індекс × (ширина + проміжок) */
 .link {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 44px;
-  height: 44px;
-  padding-inline: 8px;
-  border: 1px solid transparent;
+  width: var(--item-size);
+  height: var(--item-size);
   border-radius: var(--radius-pill);
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
+  transition: color 250ms var(--ease-out);
 }
 
-/* currentColor — щоб рамка працювала і на світлому header, і в темному мобільному меню */
-.current {
-  border-color: currentColor;
+/* Текст над пігулкою — контрастний: білий у header, темний у мобільному меню */
+.highlighted {
+  color: var(--color-contrast-fill-text);
 }

@@ -1,5 +1,8 @@
 export const BRAND_NAME = 'PROSTO';
 
+/** Має збігатися з брейкпоінтом desktop у CSS. */
+export const DESKTOP_MEDIA_QUERY = '(min-width: 1440px)';
+
 /** id секцій — це якорі в URL (/en#services), тому не перейменовувати без потреби. */
 export const SECTION_IDS = {
   hero: 'top',

@@ -26,8 +26,13 @@
   --color-inverse-border: rgba(255, 255, 255, 0.16);
   --color-inverse-border-strong: rgba(255, 255, 255, 0.3);
 
-  /* На темному фоні перевизначається на --color-accent, щоб фокус лишався контрастним */
+  /* На темному фоні обидва перевизначаються на --color-accent: синій там погано видно */
   --color-focus: var(--color-primary);
+  --color-link-hover: var(--color-primary);
+
+  /* Заливка, контрастна до фону: ховер кнопок, пігулка перемикача мов. На темному фоні — біла */
+  --color-contrast-fill: var(--color-text);
+  --color-contrast-fill-text: var(--color-surface);
 
   /* Шрифти: --font-unbounded і --font-manrope задає next/font у app/[locale]/layout.tsx */
   --font-heading: var(--font-unbounded), 'Arial Black', sans-serif;
@@ -48,6 +53,9 @@
   --radius-pill: 999px;
 
   --transition-fast: 150ms ease;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Легкий «перескок» — для кружечка в меню */
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
   --z-mobile-menu: 100;
 }
 
@@ -136,6 +144,16 @@ a {
 :focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 3px;
+}
+
+/* Людина попросила в системі менше руху: стани змінюються, але без анімації */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
 
 /* Текст для скрінрідерів, невидимий на екрані */

@@ -1,5 +1,6 @@
 .footer {
   --color-focus: var(--color-accent);
+  --color-link-hover: var(--color-accent);
 
   padding-block: 48px 32px;
   background: var(--color-inverse-bg);
@@ -21,14 +22,6 @@
   gap: 8px 20px;
   font-size: 15px;
   font-weight: 700;
-}
-
-.navLink {
-  text-decoration: none;
-}
-
-.navLink:hover {
-  color: var(--color-accent);
 }
 
 .copyright {
