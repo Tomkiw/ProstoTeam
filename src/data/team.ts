@@ -25,14 +25,14 @@ export const TEAM: TeamMember[] = [
   {
     id: 'ihor',
     name: { en: 'Ihor', pl: 'Ihor', uk: 'Ігор' },
-    role: { en: '[Role in the team]', pl: '[Rola w zespole]', uk: '[Роль у команді]' },
-    shortRole: { en: '[role]', pl: '[rola]', uk: '[роль]' },
+    role: { en: 'Full-stack developer', pl: 'Full-stack developer', uk: 'Фулстек-розробник' },
+    shortRole: { en: 'full-stack', pl: 'full-stack', uk: 'фулстек' },
     bio: {
-      en: '[What you do in projects]',
-      pl: '[Czym zajmujesz się w projektach]',
-      uk: '[Що робить у проєктах]',
+      en: 'Works on both the client and the server side: brings ideas and turns them into a working website.',
+      pl: 'Pisze zarówno część kliencką, jak i serwerową: proponuje pomysły i zamienia je w działającą stronę.',
+      uk: 'Пише і клієнтську, і серверну частину: пропонує ідеї та доводить їх до робочого сайту.',
     },
-    stack: ['[Технології та інструменти]'],
+    stack: ['Next.js', 'React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
     color: 'accent',
   },
 ];

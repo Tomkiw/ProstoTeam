@@ -105,8 +105,9 @@
 
 ## Контент — замінити плейсхолдери
 
-- [ ] Роль, опис і стек Ігоря — `src/data/team.ts`.
-- [ ] Четвертий проєкт (Ігоря): назва, опис, `kind`, скріншот — `src/data/projects.ts`.
+- [x] Роль, опис і стек Ігоря — `src/data/team.ts`.
+- [x] Четвертий проєкт (Ігоря) — Recipool: назва, опис, `kind`, стек — `src/data/projects.ts`.
+- [ ] Скріншоти всіх чотирьох проєктів у `public/images/projects/` + поле `screenshot` у `src/data/projects.ts`.
 - [ ] Ціни й терміни, валюта для кожної мови — `src/data/services.ts`.
 - [ ] Контакти: значення й `href` (`https://t.me/…`, `mailto:…`, `tel:+48…`) — `src/data/contacts.ts`.
 - [ ] «[N] годин» — `contacts.responseTime` у трьох `messages/*.json`.
