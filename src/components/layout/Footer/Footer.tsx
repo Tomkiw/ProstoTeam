@@ -14,7 +14,7 @@ export function Footer() {
       <Container>
         <div className={styles.inner}>
           <Logo tone="light" className={styles.logo} />
-          <nav aria-label={t('footerLabel')}>
+          <nav aria-label={t('footerLabel')} className={styles.nav}>
             <NavList className={styles.navList} />
           </nav>
           <p className={styles.copyright}>
