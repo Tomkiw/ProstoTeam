@@ -111,8 +111,8 @@ figure {
   margin: 0;
 }
 
-ul[class],
-ol[class] {
+/* :where() обнуляє специфічність — інакше ul[class] перебиває margin і padding з класів CSS-модулів */
+:where(ul[class], ol[class]) {
   margin: 0;
   padding: 0;
   list-style: none;
