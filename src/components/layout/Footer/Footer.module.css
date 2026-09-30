@@ -29,15 +29,51 @@
   color: var(--color-inverse-text-muted);
 }
 
+/*
+ * З 768 — grid з іменованими областями: DOM той самий, змінюється лише розкладка.
+ * 768: лого й меню в рядку, копірайт під ними. 1440: усі троє в одному рядку.
+ */
+@media (min-width: 768px) {
+  .footer {
+    padding-block: 60px 36px;
+  }
+
+  .inner {
+    display: grid;
+    grid-template-areas:
+      'logo nav'
+      'copyright copyright';
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 24px;
+    padding-top: 28px;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .nav {
+    grid-area: nav;
+  }
+
+  .copyright {
+    grid-area: copyright;
+  }
+
+  .navList {
+    flex-wrap: nowrap;
+    gap: 20px;
+  }
+}
+
 @media (min-width: 1440px) {
   .footer {
     padding-block: 96px 48px;
   }
 
   .inner {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    grid-template-areas: 'logo nav copyright';
     gap: 32px;
     padding-top: 40px;
   }
