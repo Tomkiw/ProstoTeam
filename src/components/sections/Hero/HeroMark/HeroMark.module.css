@@ -1,0 +1,80 @@
+/*
+ * Усі розміри в em: на брейкпоінтах змінюється лише font-size, а кружечки
+ * (~0.59 кегля, як у макеті: 47/80, 104/176, 190/320) масштабуються разом із ним.
+ * min(..., vw) — на екранах, вужчих за макет, лого зменшується, а не вилазить за край.
+ */
+.mark {
+  /* clip, а не hidden: страхує від горизонтальної прокрутки, але не обрізає хвостик «p» знизу */
+  overflow-x: clip;
+  font-family: var(--font-heading);
+  font-size: min(80px, 21vw);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.0375em;
+  white-space: nowrap;
+  color: var(--color-text);
+}
+
+/* inline-block + overflow: hidden → базова лінія по нижньому краю, тож кружечок стоїть на рядку як «о» */
+.circle {
+  display: inline-block;
+  vertical-align: baseline;
+  width: 0.59em;
+  height: 0.59em;
+  overflow: hidden;
+  border-radius: 50%;
+  letter-spacing: normal;
+}
+
+.circleFirst {
+  margin: 0 0.08em 0 0.04em;
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.circleSecond {
+  margin-left: 0.04em;
+  background: var(--color-accent);
+  color: var(--color-text);
+}
+
+/* Ім'я й роль лише на 1440: до того кружечок замалий, а команду показує список під лого */
+.member {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mark {
+    font-size: min(176px, 22.9vw);
+  }
+}
+
+@media (min-width: 1440px) {
+  .mark {
+    font-size: min(320px, 22.2vw);
+  }
+
+  .member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 100%;
+    padding: 16px;
+    font-family: var(--font-body);
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .name {
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+  .role {
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
