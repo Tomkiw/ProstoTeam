@@ -52,7 +52,12 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const locale = await initRequestLocale(params);
 
   return (
-    <html lang={locale} className={cn(manrope.variable, unbounded.variable)}>
+    <html
+      lang={locale}
+      className={cn(manrope.variable, unbounded.variable)}
+      // Next вимикає плавну прокрутку з globals.css на час переходу між сторінками
+      data-scroll-behavior="smooth"
+    >
       <body>
         <NextIntlClientProvider>
           <Header />

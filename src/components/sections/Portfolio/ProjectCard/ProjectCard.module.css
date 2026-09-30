@@ -1,6 +1,174 @@
 .card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 12px;
+}
+
+/* «Вікно браузера»: рядок адреси, під ним скріншот */
+.browser {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  overflow: hidden;
+  border: 1px solid var(--color-placeholder-border);
+  border-radius: var(--radius-md);
+  background: var(--color-placeholder);
+}
+
+.toolbar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 36px;
+  padding-inline: 12px;
+  border-bottom: 1px solid var(--color-placeholder-border);
+  background: var(--color-surface);
+}
+
+.address {
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+/* next/image з fill розтягується на цей блок */
+.screen {
+  position: relative;
+  flex-grow: 1;
+}
+
+.screenshot {
+  object-fit: cover;
+  object-position: top;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding-inline: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.inDevelopment {
+  background: var(--color-accent-soft);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.stack {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.link {
+  align-self: flex-start;
+  font-size: 15px;
+  font-weight: 800;
+  transition: color var(--transition-fast);
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: var(--color-link-hover);
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    gap: 14px;
+  }
+
+  .browser {
+    height: 240px;
+  }
+
+  .toolbar {
+    height: 40px;
+    padding-inline: 14px;
+  }
+
+  .address {
+    padding-inline: 12px;
+  }
+
+  .badges {
+    gap: 8px;
+  }
+
+  .badge {
+    height: 30px;
+    padding-inline: 12px;
+    font-size: 13px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .stack {
+    font-size: 14px;
+  }
+
+  .link {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card {
+    gap: 18px;
+  }
+
+  .browser {
+    height: 440px;
+    border-radius: var(--radius-lg);
+  }
+
+  .toolbar {
+    height: 44px;
+    padding-inline: 16px;
+  }
+
+  .address {
+    padding: 5px 14px;
+    font-size: 13px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  /* Обмеження спрацьовує лише в широкій картці (7 колонок) */
+  .description {
+    max-width: 620px;
+    font-size: 17px;
+  }
 }
