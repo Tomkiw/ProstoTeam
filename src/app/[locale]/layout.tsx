@@ -7,8 +7,9 @@ import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { initRequestLocale } from '@/i18n/initRequestLocale';
 import { routing } from '@/i18n/routing';
-import { BRAND_NAME } from '@/lib/constants';
 import { cn } from '@/lib/cn';
+import { TITLE_TEMPLATE } from '@/lib/metadata';
+import { getSiteUrl, isIndexingAllowed } from '@/lib/site';
 import type { LocaleParams } from '@/types/i18n';
 import '../globals.css';
 
@@ -43,8 +44,12 @@ export async function generateMetadata({ params }: LocaleMetadataProps): Promise
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
   return {
-    title: { default: t('title'), template: `%s — ${BRAND_NAME}` },
+    metadataBase: getSiteUrl(),
+    title: { default: t('title'), template: TITLE_TEMPLATE },
     description: t('description'),
+    twitter: { card: 'summary_large_image' },
+    // Поки нема власного домену, сайт закритий від пошуку (див. lib/site.ts)
+    robots: isIndexingAllowed() ? undefined : { index: false, follow: false },
   };
 }
 

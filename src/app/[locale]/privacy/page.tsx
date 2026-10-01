@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Container } from '@/components/ui/Container';
 import { initRequestLocale } from '@/i18n/initRequestLocale';
+import { getPageMetadata } from '@/lib/metadata';
 import type { LocaleParams } from '@/types/i18n';
 import styles from './page.module.css';
 
@@ -12,8 +13,10 @@ type PrivacyPageProps = {
 export async function generateMetadata({ params }: PrivacyPageProps): Promise<Metadata> {
   const locale = await initRequestLocale(params);
   const t = await getTranslations({ locale, namespace: 'privacy' });
+  const metadata = await getPageMetadata({ locale, href: '/privacy', title: t('title') });
 
-  return { title: t('title') };
+  // Юридична сторінка: у пошуку вона не потрібна
+  return { ...metadata, robots: { index: false, follow: true } };
 }
 
 // Заглушка: текст політики додамо, коли визначимося, куди відправляється форма і які дані зберігаємо.
