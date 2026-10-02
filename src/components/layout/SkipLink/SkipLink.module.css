@@ -1,0 +1,19 @@
+/* Сховане за верхнім краєм екрана; з'являється, коли на нього потрапляє фокус (перший Tab) */
+.link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: var(--z-skip-link);
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  background: var(--color-text);
+  color: var(--color-surface);
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  transform: translateY(calc(-100% - 16px));
+}
+
+.link:focus {
+  transform: none;
+}

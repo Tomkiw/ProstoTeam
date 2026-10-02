@@ -36,11 +36,14 @@
   transition: transform 300ms var(--ease-out);
 }
 
-.link:focus-visible::before {
+/* :active — відгук на дотик: на телефоні ховера нема, тож кружечок з'являється під пальцем */
+.link:focus-visible::before,
+.link:active::before {
   transform: translateY(-50%) scale(1);
 }
 
-.stacked .link:focus-visible .label {
+.stacked .link:focus-visible .label,
+.stacked .link:active .label {
   transform: translateX(0.9em);
 }
 

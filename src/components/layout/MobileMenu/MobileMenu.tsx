@@ -60,7 +60,8 @@ export function MobileMenu() {
         id={panelId}
         role="dialog"
         aria-modal="true"
-        aria-label={t('nav.label')}
+        // Не nav.label: інакше скрінрідер двічі поспіль назве і діалог, і nav у ньому «Головне меню»
+        aria-label={t('header.menuLabel')}
         className={styles.panel}
         hidden={!isOpen}
       >
@@ -98,7 +99,7 @@ export function MobileMenu() {
         </nav>
 
         <div className={styles.bottom}>
-          <LanguageSwitcher />
+          <LanguageSwitcher tone="light" />
 
           <div className={styles.bottomRow}>
             {/* Обгортка: на 375 розтягує кнопку на всю ширину, на 768 — повертає природну */}
@@ -109,7 +110,7 @@ export function MobileMenu() {
             </div>
 
             {MENU_CONTACTS.length > 0 && (
-              <ul className={styles.contacts}>
+              <ul role="list" className={styles.contacts}>
                 {MENU_CONTACTS.map((contact) => (
                   <li key={contact.channel} className={styles.contact}>
                     <span className={styles.contactLabel}>

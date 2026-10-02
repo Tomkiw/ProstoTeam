@@ -23,7 +23,7 @@ export function About() {
         <p className={styles.lead}>{t('lead')}</p>
 
         {TEAM.length > 0 && (
-          <ul className={styles.team}>
+          <ul role="list" className={styles.team}>
             {TEAM.map((member) => (
               <li key={member.id}>
                 <TeamCard member={member} />
@@ -32,7 +32,7 @@ export function About() {
           </ul>
         )}
 
-        <ul className={styles.features}>
+        <ul role="list" className={styles.features}>
           {ABOUT_FEATURES.map((feature) => (
             <li key={feature} className={styles.feature}>
               <h3 className={styles.featureTitle}>{t(`features.${feature}.title`)}</h3>

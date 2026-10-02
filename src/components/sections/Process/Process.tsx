@@ -15,7 +15,7 @@ export function Process() {
     <section id={SECTION_IDS.process} className={styles.section}>
       <Container>
         <SectionTitle>{t('title')}</SectionTitle>
-        <ol className={styles.steps}>
+        <ol role="list" className={styles.steps}>
           {PROCESS_STEPS.map((step, index) => (
             <li key={step} className={styles.step}>
               <span className={styles.number}>{index + 1}</span>

@@ -62,8 +62,14 @@
   list-style: disc;
 }
 
+/* anywhere — довга пошта на вузькому екрані переноситься, а не вилазить за край */
 .text a {
+  overflow-wrap: anywhere;
   transition: color var(--transition-fast);
+}
+
+.text a:active {
+  color: var(--color-link-hover);
 }
 
 @media (hover: hover) {

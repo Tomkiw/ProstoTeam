@@ -179,6 +179,11 @@
   height: 0.9em;
 }
 
+/* Відгук на дотик — той самий колір, що й при наведенні */
+.link:active {
+  color: var(--color-link-hover);
+}
+
 @media (hover: hover) {
   .link:hover {
     color: var(--color-link-hover);

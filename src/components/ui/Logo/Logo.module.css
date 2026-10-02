@@ -7,6 +7,12 @@
   line-height: 1;
   letter-spacing: -0.5px;
   text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+/* Відгук на дотик: ховер-ефекту в лого нема, тож при натисканні воно лише трохи блідне */
+.logo:active {
+  opacity: 0.7;
 }
 
 .dark {

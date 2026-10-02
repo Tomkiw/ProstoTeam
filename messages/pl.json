@@ -5,7 +5,8 @@
   },
   "common": {
     "homeLabel": "PROSTO, strona główna",
-    "discussProject": "Omówmy projekt"
+    "discussProject": "Omówmy projekt",
+    "skipToContent": "Przejdź do treści"
   },
   "nav": {
     "label": "Menu główne",
@@ -18,7 +19,8 @@
   },
   "header": {
     "openMenu": "Otwórz menu",
-    "closeMenu": "Zamknij menu"
+    "closeMenu": "Zamknij menu",
+    "menuLabel": "Menu"
   },
   "languageSwitcher": {
     "label": "Wybierz język"
@@ -181,6 +183,12 @@
   "notFound": {
     "title": "Nie znaleziono strony",
     "text": "Adres mógł zostać wpisany z błędem lub strona została przeniesiona.",
+    "backHome": "Wróć na stronę główną"
+  },
+  "errorPage": {
+    "title": "Coś poszło nie tak",
+    "text": "Podczas ładowania strony wystąpił błąd. Spróbuj ponownie lub wróć na stronę główną.",
+    "retry": "Spróbuj ponownie",
     "backHome": "Wróć na stronę główną"
   }
 }

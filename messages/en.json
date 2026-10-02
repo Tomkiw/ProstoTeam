@@ -5,7 +5,8 @@
   },
   "common": {
     "homeLabel": "PROSTO, go to homepage",
-    "discussProject": "Discuss a project"
+    "discussProject": "Discuss a project",
+    "skipToContent": "Skip to content"
   },
   "nav": {
     "label": "Main navigation",
@@ -18,7 +19,8 @@
   },
   "header": {
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "menuLabel": "Menu"
   },
   "languageSwitcher": {
     "label": "Choose language"
@@ -181,6 +183,12 @@
   "notFound": {
     "title": "Page not found",
     "text": "The address may be mistyped, or the page has moved.",
+    "backHome": "Back to homepage"
+  },
+  "errorPage": {
+    "title": "Something went wrong",
+    "text": "An error occurred while loading the page. Please try again or go back to the homepage.",
+    "retry": "Try again",
     "backHome": "Back to homepage"
   }
 }

@@ -86,7 +86,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </a>
 
-      <ul className={styles.badges}>
+      <ul role="list" className={styles.badges}>
         <li className={styles.badge}>{t(`kinds.${project.kind}`)}</li>
         {project.tags?.map((tag) => (
           <li key={tag.id} className={styles.badge}>

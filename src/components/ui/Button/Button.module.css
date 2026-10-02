@@ -10,7 +10,14 @@
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  transition: color 500ms var(--ease-out);
+  transition:
+    color 500ms var(--ease-out),
+    transform var(--transition-fast);
+}
+
+/* Відгук на натискання — і пальцем, і мишею: кнопка трохи «вдавлюється» */
+.button:not(:disabled, [aria-disabled='true']):active {
+  transform: scale(0.97);
 }
 
 /*

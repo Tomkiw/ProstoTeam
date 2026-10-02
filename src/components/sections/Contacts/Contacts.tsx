@@ -26,7 +26,7 @@ export function Contacts() {
             {t('title')}
           </SectionTitle>
           <p className={styles.responseTime}>{t('responseTime')}</p>
-          <ul className={styles.channels}>
+          <ul role="list" className={styles.channels}>
             {CONTACTS.map((contact) => (
               <li key={contact.channel} className={styles.channel}>
                 <span className={styles.channelLabel}>{t(`channels.${contact.channel}`)}</span>

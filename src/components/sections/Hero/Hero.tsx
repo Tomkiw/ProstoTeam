@@ -33,7 +33,7 @@ export function Hero() {
         <HeroMark className={styles.mark} />
 
         {/* До 1440 команда — списком; на 1440 список ховається, бо імена вже в кружечках лого */}
-        <ul className={styles.team}>
+        <ul role="list" className={styles.team}>
           {TEAM.map((member) => (
             <li key={member.id} className={styles.member}>
               <span className={cn(styles.dot, styles[member.color])} aria-hidden="true" />
