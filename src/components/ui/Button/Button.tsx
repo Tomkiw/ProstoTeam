@@ -27,6 +27,8 @@ type ButtonAsButtonProps = BaseButtonProps & {
   href?: never;
   type?: 'button' | 'submit';
   disabled?: boolean;
+  /** Недоступна, але, на відміну від disabled, лишається у фокусі — напр. поки надсилається форма. */
+  'aria-disabled'?: boolean;
 };
 
 type ButtonProps = ButtonAsLinkProps | ButtonAsButtonProps;
@@ -82,6 +84,7 @@ export function Button(props: ButtonProps) {
     <button
       type={props.type ?? 'button'}
       disabled={props.disabled}
+      aria-disabled={props['aria-disabled']}
       className={classes}
       onClick={onClick}
       {...FILL_HANDLERS}

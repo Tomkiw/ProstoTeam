@@ -26,7 +26,8 @@ export function NavList({
   const t = useTranslations('nav');
 
   return (
-    <ul className={cn(styles[variant], className)}>
+    // role="list": без маркерів Safari з VoiceOver може не оголосити список (див. globals.css)
+    <ul role="list" className={cn(styles[variant], className)}>
       {NAV_SECTIONS.map((section) => (
         <li key={section}>
           <Link

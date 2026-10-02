@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "title": "PROSTO — studio webowe",
-    "description": "Tworzymy strony, które po prostu działają: landing page, strony firmowe, sklepy internetowe i boty Telegram."
+    "title": "Tworzenie stron i sklepów internetowych — PROSTO",
+    "description": "Landing page, strony firmowe i sklepy internetowe. Dwuosobowy zespół: piszesz bezpośrednio do programistów — od pierwszej rozmowy po wsparcie."
   },
   "common": {
     "homeLabel": "PROSTO, strona główna",
-    "discussProject": "Omówmy projekt"
+    "discussProject": "Omówmy projekt",
+    "skipToContent": "Przejdź do treści"
   },
   "nav": {
     "label": "Menu główne",
@@ -18,7 +19,8 @@
   },
   "header": {
     "openMenu": "Otwórz menu",
-    "closeMenu": "Zamknij menu"
+    "closeMenu": "Zamknij menu",
+    "menuLabel": "Menu"
   },
   "languageSwitcher": {
     "label": "Wybierz język"
@@ -64,7 +66,9 @@
     "inDevelopment": "W trakcie realizacji",
     "screenshotAlt": "Zrzut ekranu {title}",
     "openSite": "Otwórz stronę",
-    "openBot": "Otwórz bota"
+    "openBot": "Otwórz bota",
+    "opensInNewTab": "otwiera się w nowej karcie",
+    "openInNewTab": "Otwórz w nowej karcie"
   },
   "process": {
     "title": "Jak pracujemy",
@@ -102,32 +106,89 @@
   },
   "contactForm": {
     "title": "Zapytanie o stronę",
-    "nameLabel": "Imię *",
+    "requiredNote": "* — pola obowiązkowe",
+    "nameLabel": "Imię",
     "namePlaceholder": "Jak mamy się do Ciebie zwracać",
-    "contactLabel": "Telefon lub Telegram *",
-    "contactPlaceholder": "+48 000 000 000 lub @nazwa",
+    "contactLabel": "Telefon",
+    "contactPlaceholder": "123 456 789",
+    "phoneCountryLabel": "Kod kraju",
+    "otherCountry": "Inny kraj",
+    "otherCountryPlaceholder": "+kod kraju i numer",
     "serviceLabel": "Czego potrzebujesz",
     "servicePlaceholder": "Wybierz usługę",
     "otherService": "Inne",
-    "messageLabel": "Krótko o projekcie",
-    "messagePlaceholder": "Czym się zajmujesz, co ma umieć strona, jakie strony Ci się podobają",
+    "messageLabel": "Krótko o projekcie i jak się z Tobą skontaktować",
+    "messagePlaceholder": "Czym się zajmujesz, co ma umieć strona, jakie strony Ci się podobają. I gdzie wolisz rozmawiać: WhatsApp, Messenger czy Telegram?",
     "submit": "Wyślij zapytanie",
-    "consent": "* Pola obowiązkowe. Wysyłając zapytanie, akceptujesz <link>politykę prywatności</link>.",
+    "consent": "Wysyłając zapytanie, potwierdzasz zapoznanie się z <link>polityką prywatności</link>.",
     "sending": "Wysyłamy…",
-    "success": "Dziękujemy! Mamy Twoje zapytanie i wkrótce się odezwiemy.",
-    "error": "Nie udało się wysłać zapytania. Spróbuj ponownie lub napisz do nas na Telegramie.",
+    "successTitle": "Dziękujemy! Mamy Twoje zapytanie",
+    "sendAnother": "Wyślij kolejne zapytanie",
+    "error": "Nie udało się wysłać zapytania. Spróbuj ponownie lub napisz do nas na <link>Telegramie</link>.",
     "errors": {
       "name": "Podaj, jak mamy się do Ciebie zwracać",
-      "contact": "Podaj numer telefonu lub Telegram"
+      "contact": "Podaj numer telefonu",
+      "phoneInvalid": "Sprawdź numer — wygląda na niepoprawny"
     }
   },
   "privacy": {
     "title": "Polityka prywatności",
-    "stub": "Strona w przygotowaniu. Treść polityki pojawi się wkrótce."
+    "updated": "Ostatnia aktualizacja: 2 października 2026 r.",
+    "intro": "Wyjaśniamy tu, jakie dane otrzymujemy, gdy wysyłasz zapytanie przez stronę, do czego ich używamy i jak je chronimy. Zbieramy tylko to, co jest potrzebne, aby odpowiedzieć na Twoje zapytanie.",
+    "sections": {
+      "controller": {
+        "title": "Kim jesteśmy",
+        "text": "Administratorem Twoich danych osobowych jest [imię i nazwisko lub nazwa firmy, adres]. We wszystkich sprawach dotyczących danych napisz do nas: <email>{address}</email>."
+      },
+      "data": {
+        "title": "Jakie dane otrzymujemy",
+        "text": "Imię, numer telefonu, wybraną usługę i treść wiadomości — to, co podasz w formularzu. Widzimy też, w jakim języku była otwarta strona. Podczas odwiedzin strony hosting automatycznie zapisuje dane techniczne: adres IP, typ przeglądarki, czas zapytania. Podanie danych jest dobrowolne, ale bez imienia i numeru telefonu nie będziemy mogli odpowiedzieć."
+      },
+      "purpose": {
+        "title": "W jakim celu i na jakiej podstawie",
+        "text": "Dane z formularza wykorzystujemy, aby odpowiedzieć na zapytanie, omówić projekt i przygotować ofertę. To działania podejmowane na Twoje żądanie przed zawarciem umowy (art. 6 ust. 1 lit. b RODO). Dane techniczne są potrzebne do działania i bezpieczeństwa strony — to nasz prawnie uzasadniony interes (art. 6 ust. 1 lit. f RODO). Nie wykorzystujemy Twoich danych do wysyłki newsletterów i nie sprzedajemy ich."
+      },
+      "recipients": {
+        "title": "Kto jeszcze ma dostęp",
+        "text": "Zapytania trafiają do nas przez Telegram, więc przetwarza je serwis Telegram. Strona działa na hostingu Vercel. Ci dostawcy mogą przetwarzać dane poza Europejskim Obszarem Gospodarczym — w takim przypadku z zabezpieczeniami przewidzianymi w RODO, w szczególności standardowymi klauzulami umownymi Komisji Europejskiej. Nikomu innemu nie przekazujemy Twoich danych, chyba że wymagają tego przepisy."
+      },
+      "retention": {
+        "title": "Jak długo przechowujemy dane",
+        "text": "Zapytanie przechowujemy, dopóki rozmawiamy o współpracy, i nie dłużej niż [12 miesięcy] od ostatniego kontaktu. Jeśli zawrzemy umowę, dane będziemy przechowywać tak długo, jak wymagają tego przepisy."
+      },
+      "rights": {
+        "title": "Twoje prawa",
+        "text": "Masz prawo:",
+        "outro": "Aby skorzystać z któregokolwiek z tych praw, napisz do nas — odpowiemy w ciągu miesiąca."
+      },
+      "cookies": {
+        "title": "Pliki cookie",
+        "text": "Strona zapisuje tylko jeden plik cookie — NEXT_LOCALE, aby zapamiętać wybrany język. Nie używamy analitycznych ani reklamowych plików cookie."
+      },
+      "changes": {
+        "title": "Zmiany polityki",
+        "text": "Jeśli coś się zmieni — na przykład dodamy analitykę — zaktualizujemy tę stronę i datę na górze."
+      }
+    },
+    "rightsList": {
+      "access": "uzyskać informację, jakie Twoje dane posiadamy, oraz ich kopię;",
+      "rectification": "sprostować nieprawidłowe dane;",
+      "erasure": "żądać usunięcia danych;",
+      "restriction": "ograniczyć ich przetwarzanie;",
+      "portability": "otrzymać dane w wygodnym formacie lub przenieść je do innego administratora;",
+      "objection": "wnieść sprzeciw wobec przetwarzania na podstawie naszego prawnie uzasadnionego interesu;",
+      "complaint": "wnieść skargę do Prezesa Urzędu Ochrony Danych Osobowych."
+    }
   },
   "notFound": {
     "title": "Nie znaleziono strony",
     "text": "Adres mógł zostać wpisany z błędem lub strona została przeniesiona.",
+    "backHome": "Wróć na stronę główną"
+  },
+  "errorPage": {
+    "title": "Coś poszło nie tak",
+    "text": "Podczas ładowania strony wystąpił błąd. Spróbuj ponownie lub wróć na stronę główną.",
+    "retry": "Spróbuj ponownie",
     "backHome": "Wróć na stronę główną"
   }
 }

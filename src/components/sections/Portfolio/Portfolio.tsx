@@ -18,7 +18,7 @@ export function Portfolio() {
           <p className={styles.note}>{t('note')}</p>
         </div>
         {PROJECTS.length > 0 && (
-          <ul className={styles.list}>
+          <ul role="list" className={styles.list}>
             {PROJECTS.map((project) => (
               <li key={project.id} className={styles.item}>
                 <ProjectCard project={project} />

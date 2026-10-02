@@ -1,14 +1,18 @@
 import type { Metadata } from 'next';
 import { Manrope, Unbounded } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import type { ReactNode } from 'react';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
+import { SkipLink } from '@/components/layout/SkipLink';
+import { pickClientMessages } from '@/i18n/clientMessages';
 import { initRequestLocale } from '@/i18n/initRequestLocale';
 import { routing } from '@/i18n/routing';
-import { BRAND_NAME } from '@/lib/constants';
 import { cn } from '@/lib/cn';
+import { MAIN_CONTENT_ID } from '@/lib/constants';
+import { TITLE_TEMPLATE } from '@/lib/metadata';
+import { getSiteUrl, isIndexingAllowed } from '@/lib/site';
 import type { LocaleParams } from '@/types/i18n';
 import '../globals.css';
 
@@ -43,13 +47,18 @@ export async function generateMetadata({ params }: LocaleMetadataProps): Promise
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
   return {
-    title: { default: t('title'), template: `%s — ${BRAND_NAME}` },
+    metadataBase: getSiteUrl(),
+    title: { default: t('title'), template: TITLE_TEMPLATE },
     description: t('description'),
+    twitter: { card: 'summary_large_image' },
+    // Поки нема власного домену, сайт закритий від пошуку (див. lib/site.ts)
+    robots: isIndexingAllowed() ? undefined : { index: false, follow: false },
   };
 }
 
 export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const locale = await initRequestLocale(params);
+  const messages = await getMessages({ locale });
 
   return (
     <html
@@ -59,9 +68,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       data-scroll-behavior="smooth"
     >
       <body>
-        <NextIntlClientProvider>
+        {/* Без messages провайдер віддав би в браузер усі переклади сайту */}
+        <NextIntlClientProvider messages={pickClientMessages(messages)}>
+          <SkipLink />
           <Header />
-          <main>{children}</main>
+          <main id={MAIN_CONTENT_ID}>{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

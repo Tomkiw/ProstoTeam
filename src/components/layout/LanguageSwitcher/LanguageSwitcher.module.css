@@ -1,25 +1,55 @@
-/* 44px — мінімальна зона дотику для пальця */
+/*
+ * 44px — мінімальна зона дотику для пальця.
+ * Рамка навколо групи, як у сегментованого перемикача: неактивні мови не виглядають простим текстом.
+ * Кольори — змінні --switcher-*, їх задає тон: .dark або .light (проп tone)
+ */
 .switcher {
   --item-size: 44px;
   --item-gap: 4px;
+  --frame-padding: 4px;
 
   position: relative;
   display: inline-flex;
+  padding: var(--frame-padding);
+  border: 1px solid var(--switcher-border);
+  border-radius: var(--radius-pill);
+  background: var(--switcher-bg);
 }
 
 /*
- * Одна пігулка їздить під наведену мову й повертається до активної.
+ * Кольори — як у кнопок сайту: активна мова на темній пігулці з білим текстом,
+ * решта — жирний темний текст, як пункти меню поруч
+ */
+.dark {
+  --switcher-bg: var(--color-surface);
+  --switcher-border: var(--color-border);
+  --switcher-pill: var(--color-text);
+  --switcher-text: var(--color-text);
+  --switcher-text-selected: var(--color-surface);
+}
+
+/* На темному фоні (мобільне меню) навпаки: прозора група, біла пігулка з темним текстом */
+.light {
+  --switcher-bg: transparent;
+  --switcher-border: var(--color-inverse-border-strong);
+  --switcher-pill: var(--color-surface);
+  --switcher-text: var(--color-inverse-text);
+  --switcher-text-selected: var(--color-text);
+}
+
+/*
+ * Пігулка стоїть під активною мовою, а після кліку одразу їде до вибраної — поки вантажиться сторінка.
  * Позиція — з індексу (--pill-index ставить LanguageSwitcher.tsx), тож вона правильна
  * вже в серверному HTML, без вимірювання елементів.
  */
 .pill {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: var(--frame-padding);
+  left: var(--frame-padding);
   width: var(--item-size);
   height: var(--item-size);
   border-radius: var(--radius-pill);
-  background: var(--color-contrast-fill);
+  background: var(--switcher-pill);
   transform: translateX(calc(var(--pill-index, 0) * (var(--item-size) + var(--item-gap))));
   transition: transform 350ms var(--ease-out);
   pointer-events: none;
@@ -40,13 +70,59 @@
   width: var(--item-size);
   height: var(--item-size);
   border-radius: var(--radius-pill);
+  color: var(--switcher-text);
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
   transition: color 250ms var(--ease-out);
 }
 
-/* Текст над пігулкою — контрастний: білий у header, темний у мобільному меню */
-.highlighted {
-  color: var(--color-contrast-fill-text);
+.selected {
+  color: var(--switcher-text-selected);
+}
+
+/*
+ * Наведення — кругла обвідка, як у кнопки outline, а не пігулка: активну й наведену мову не сплутати.
+ * Вискакує з легким перескоком, як кружечок у пунктах меню
+ */
+.link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid currentColor;
+  border-radius: inherit;
+  opacity: 0;
+  transform: scale(0.7);
+  transition:
+    transform 300ms var(--ease-pop),
+    opacity var(--transition-fast);
+  pointer-events: none;
+}
+
+/* Відгук на дотик — та сама обвідка */
+.link:not(.selected):active::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (hover: hover) {
+  .link:not(.selected):hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Рамка фокуса — всередині групи: із загальним відступом 3px вона наїжджала б на рамку перемикача */
+.link:focus-visible {
+  outline-offset: 1px;
+}
+
+/*
+ * На 1440 перемикач видно лише в header (мобільне меню сховане), там працюють мишею.
+ * 38px + відступи + рамка = 48px — врівень із кнопкою «Обговорити проєкт» поруч
+ */
+@media (min-width: 1440px) {
+  .switcher {
+    --item-size: 38px;
+  }
 }

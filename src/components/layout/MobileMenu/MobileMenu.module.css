@@ -8,6 +8,13 @@
   padding: 0;
   border-radius: var(--radius-pill);
   cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+/* Відгук на дотик: кнопка трохи «вдавлюється» */
+.toggle:active,
+.close:active {
+  transform: scale(0.92);
 }
 
 .toggle {
@@ -98,13 +105,16 @@
   color: var(--color-inverse-text-muted);
 }
 
+/* anywhere — довга пошта на 320 переноситься, а не вилазить за край */
 .contactLink {
   font-weight: 700;
   text-decoration: none;
+  overflow-wrap: anywhere;
   transition: color var(--transition-fast);
 }
 
-.contactLink:hover {
+.contactLink:hover,
+.contactLink:active {
   color: var(--color-link-hover);
 }
 

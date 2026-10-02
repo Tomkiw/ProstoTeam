@@ -28,7 +28,7 @@ export function Services() {
           ))}
         </div>
 
-        <ul className={styles.list}>
+        <ul role="list" className={styles.list}>
           {SERVICES.map((service) => (
             <li key={service.id} className={styles.row}>
               <h3 className={styles.name}>{service.title[locale]}</h3>

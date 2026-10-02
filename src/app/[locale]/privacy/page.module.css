@@ -2,8 +2,99 @@
   padding-block: var(--section-padding-block);
 }
 
-.inner {
+/* Текст політики — вузькою колонкою: задовгі рядки важко читати */
+.content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 32px;
+  max-width: 720px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.updated {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.lead {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.text,
+.list {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* Маркери повертаємо: глобальне скидання прибирає їх у списків з класом */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 22px;
+  list-style: disc;
+}
+
+/* anywhere — довга пошта на вузькому екрані переноситься, а не вилазить за край */
+.text a {
+  overflow-wrap: anywhere;
+  transition: color var(--transition-fast);
+}
+
+.text a:active {
+  color: var(--color-link-hover);
+}
+
+@media (hover: hover) {
+  .text a:hover {
+    color: var(--color-link-hover);
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 40px;
+    letter-spacing: -1px;
+  }
+
+  .lead {
+    font-size: 18px;
+  }
+
+  .heading {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .title {
+    font-size: 48px;
+  }
 }

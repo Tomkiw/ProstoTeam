@@ -20,6 +20,10 @@ export type Project = {
   tags?: ProjectTag[];
   isInDevelopment?: boolean;
   stack?: string[];
-  /** Шлях від /public, напр. '/images/projects/mindterms.png'. Поки нема — картка показує заглушку. */
-  screenshot?: string;
+  /**
+   * Шлях від /public, напр. '/images/projects/getmatch-ua.png'. Для багатомовного проєкту —
+   * окремий скрін на кожну мову сайту: { uk: '…-uk.png', pl: '…-pl.png', en: '…-en.png' }.
+   * Поки нема — картка показує заглушку.
+   */
+  screenshot?: string | LocalizedString;
 };
