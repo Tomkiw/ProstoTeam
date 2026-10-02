@@ -65,7 +65,8 @@
     "screenshotAlt": "Zrzut ekranu {title}",
     "openSite": "Otwórz stronę",
     "openBot": "Otwórz bota",
-    "opensInNewTab": "otwiera się w nowej karcie"
+    "opensInNewTab": "otwiera się w nowej karcie",
+    "openInNewTab": "Otwórz w nowej karcie"
   },
   "process": {
     "title": "Jak pracujemy",

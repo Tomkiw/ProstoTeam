@@ -65,7 +65,8 @@
     "screenshotAlt": "Скріншот {title}",
     "openSite": "Відкрити сайт",
     "openBot": "Відкрити бота",
-    "opensInNewTab": "відкривається в новій вкладці"
+    "opensInNewTab": "відкривається в новій вкладці",
+    "openInNewTab": "Відкрити в новій вкладці"
   },
   "process": {
     "title": "Як ми працюємо",

@@ -67,6 +67,15 @@
   white-space: nowrap;
 }
 
+/* ↗ праворуч у смузі — видно завжди, зокрема на телефоні */
+.toolbarIcon {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  color: var(--color-text-muted);
+}
+
 /* next/image з fill розтягується на цей блок */
 .screen {
   position: relative;
@@ -77,6 +86,33 @@
 .screenshot {
   object-fit: cover;
   object-position: top;
+}
+
+/* Легке затемнення з кнопкою «Відкрити в новій вкладці ↗» поверх скріна; видно при наведенні на скрін */
+.screenHint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: color-mix(in srgb, var(--color-inverse-bg) 35%, transparent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+/* Як основна кнопка сайту: читається і на темному, і на світлому скріні; клік справді відкриває сайт */
+.screenHintLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-text);
+  font-size: 15px;
+  font-weight: 800;
+  text-align: center;
 }
 
 .badges {
@@ -149,6 +185,17 @@
   }
 
   .browser:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-raised);
+  }
+
+  /* Підказка — лише при наведенні на сам скрін: так вона не перекриває нічого стороннього (WCAG 1.4.13) */
+  .browser:hover .screenHint {
+    opacity: 1;
+  }
+
+  /* Наведення на «Відкрити сайт» лише піднімає вікно — видно, куди веде посилання */
+  .card:has(.link:hover) .browser {
     transform: translateY(-4px);
     box-shadow: var(--shadow-raised);
   }
