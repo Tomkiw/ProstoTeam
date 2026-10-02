@@ -16,6 +16,9 @@ export const SECTION_IDS = {
 
 export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS];
 
+/** Варіант «Інша країна» біля поля телефону: тоді номер вводять повністю, з «+» і кодом країни. */
+export const OTHER_PHONE_COUNTRY = 'OTHER';
+
 /** Пункти меню в header, мобільному меню й footer — у порядку макета. Ключі збігаються з nav.* у перекладах. */
 export const NAV_SECTIONS = [
   SECTION_IDS.about,

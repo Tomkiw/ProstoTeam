@@ -102,28 +102,79 @@
   },
   "contactForm": {
     "title": "Website request",
-    "nameLabel": "Name *",
+    "requiredNote": "* — required fields",
+    "nameLabel": "Name",
     "namePlaceholder": "What should we call you?",
-    "contactLabel": "Phone or Telegram *",
-    "contactPlaceholder": "+48 000 000 000 or @username",
+    "contactLabel": "Phone",
+    "contactPlaceholder": "123 456 789",
+    "phoneCountryLabel": "Country code",
+    "otherCountry": "Other country",
+    "otherCountryPlaceholder": "+country code and number",
     "serviceLabel": "What do you need",
     "servicePlaceholder": "Choose a service",
     "otherService": "Other",
-    "messageLabel": "About your project",
-    "messagePlaceholder": "What you do, what the website should do, which websites you like",
+    "messageLabel": "About your project and how to reach you",
+    "messagePlaceholder": "What you do, what the website should do, which websites you like. And where you'd like to chat: WhatsApp or Telegram?",
     "submit": "Send request",
-    "consent": "* Required fields. By sending a request, you agree to our <link>privacy policy</link>.",
+    "consent": "By sending a request, you confirm that you have read our <link>privacy policy</link>.",
     "sending": "Sending…",
-    "success": "Thank you! We've got your request and will be in touch soon.",
-    "error": "We couldn't send your request. Please try again or message us on Telegram.",
+    "successTitle": "Thank you! We've got your request",
+    "sendAnother": "Send another request",
+    "error": "We couldn't send your request. Please try again or message us on <link>Telegram</link>.",
     "errors": {
       "name": "Please tell us what to call you",
-      "contact": "Please add your phone number or Telegram"
+      "contact": "Please add your phone number",
+      "phoneInvalid": "Please check the number — it doesn't look right"
     }
   },
   "privacy": {
     "title": "Privacy policy",
-    "stub": "This page is in progress. The policy text will be available soon."
+    "updated": "Last updated: 2 October 2026",
+    "intro": "This page explains what data we receive when you send a request through our website, why we need it and how we protect it. We only collect what we need to reply to your request.",
+    "sections": {
+      "controller": {
+        "title": "Who we are",
+        "text": "The controller of your personal data is [full name or company name, address]. For any questions about your data, write to <email>{address}</email>."
+      },
+      "data": {
+        "title": "What data we receive",
+        "text": "Your name, phone number, the service you chose and your message — whatever you enter in the request form. We also see which language version of the site you used. When you visit the site, our hosting provider automatically records technical data: IP address, browser type and request time. Providing data is voluntary, but without your name and phone number we won't be able to reply."
+      },
+      "purpose": {
+        "title": "Why we process it and on what basis",
+        "text": "We use the form data to reply to your request, discuss your project and prepare an offer. These are steps taken at your request before entering into a contract (Art. 6(1)(b) GDPR). Technical data is needed to run and secure the website, which is our legitimate interest (Art. 6(1)(f) GDPR). We don't use your data for newsletters and we don't sell it."
+      },
+      "recipients": {
+        "title": "Who else has access",
+        "text": "Requests reach us via Telegram, so they are processed by the Telegram service. The website is hosted by Vercel. These providers may process data outside the European Economic Area — in that case with the safeguards required by the GDPR, in particular the European Commission's standard contractual clauses. We don't share your data with anyone else unless the law requires it."
+      },
+      "retention": {
+        "title": "How long we keep it",
+        "text": "We keep your request while we discuss working together, and no longer than [12 months] after our last contact. If we sign a contract, we'll keep the data for as long as the law requires."
+      },
+      "rights": {
+        "title": "Your rights",
+        "text": "You have the right to:",
+        "outro": "To exercise any of these rights, write to us — we'll reply within one month."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "text": "The website stores only one cookie, NEXT_LOCALE, to remember your chosen language. We don't use analytics or advertising cookies."
+      },
+      "changes": {
+        "title": "Changes to this policy",
+        "text": "If anything changes — for example, if we add analytics — we'll update this page and the date at the top."
+      }
+    },
+    "rightsList": {
+      "access": "find out what data we hold about you and get a copy;",
+      "rectification": "correct inaccurate data;",
+      "erasure": "have your data deleted;",
+      "restriction": "restrict its processing;",
+      "portability": "receive your data in a convenient format or have it transferred to another controller;",
+      "objection": "object to processing based on our legitimate interest;",
+      "complaint": "lodge a complaint with a data protection authority — in Poland, the President of the Personal Data Protection Office (UODO)."
+    }
   },
   "notFound": {
     "title": "Page not found",

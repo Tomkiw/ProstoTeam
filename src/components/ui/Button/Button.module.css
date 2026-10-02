@@ -42,16 +42,17 @@
 
 /* Лише для мишки: на телефоні після тапу заливка не «залипає» */
 @media (hover: hover) {
-  .button:not(:disabled):hover {
+  .button:not(:disabled, [aria-disabled='true']):hover {
     color: var(--button-fill-text);
   }
 
-  .button:not(:disabled):hover::before {
+  .button:not(:disabled, [aria-disabled='true']):hover::before {
     transform: translate(-50%, -50%) scale(1);
   }
 }
 
-.button:disabled {
+.button:disabled,
+.button[aria-disabled='true'] {
   cursor: not-allowed;
   opacity: 0.5;
 }

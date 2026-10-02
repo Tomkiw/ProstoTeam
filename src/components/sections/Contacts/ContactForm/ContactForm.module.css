@@ -73,6 +73,70 @@
   pointer-events: none;
 }
 
+/* Код країни й номер — одне поле: спільна рамка, між ними тонка лінія */
+.inputRow {
+  display: flex;
+  height: 52px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.inputRow:has([aria-invalid='true']) {
+  border-color: var(--color-error);
+}
+
+/* Рамку тримає .inputRow. min-width: 0 — інакше поле не стискається й вилазить за картку */
+.inputRow .input {
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+
+/* Видно коротко «PL +48», а прозорий нативний select лежить зверху (див. PhoneCountrySelect) */
+.country {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  width: 112px;
+  padding-inline: 14px 34px;
+  border-right: 1px solid var(--color-border);
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+/* Фокус малюємо всередині спільної рамки — видно, яка частина активна.
+   Select прозорий, тож обводимо його обгортку */
+.country:has(:focus-visible) {
+  outline: 2px solid var(--color-focus);
+  outline-offset: -2px;
+}
+
+.inputRow .input:focus-visible {
+  outline-offset: -2px;
+}
+
+/* 16px — щоб iOS не збільшував сторінку при відкритті списку */
+.countrySelect {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  font-size: 16px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.countryChevron {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
 .textarea {
   padding: 12px 14px;
   line-height: 1.5;
@@ -103,14 +167,26 @@
   transition: color var(--transition-fast);
 }
 
-.success,
-.error {
-  font-size: 15px;
-  font-weight: 700;
+.requiredNote {
+  font-size: 13px;
+  color: var(--color-text-muted);
 }
 
 .error {
+  font-size: 15px;
+  font-weight: 700;
   color: var(--color-error);
+}
+
+/* Фокус сюди ставимо програмно, щоб скрінрідер прочитав подяку; рамка навколо всієї картки зайва */
+.successCard:focus {
+  outline: none;
+}
+
+.successText {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
 }
 
 @media (hover: hover) {
