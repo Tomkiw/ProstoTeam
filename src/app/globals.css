@@ -48,11 +48,15 @@
   --grid-gap: 24px;
 
   /* Радіуси */
+  --radius-xs: 6px;
   --radius-sm: 12px;
   --radius-md: 16px;
   --radius-lg: 20px;
   --radius-xl: 24px;
   --radius-pill: 999px;
+
+  /* Тіні: «піднятий» елемент — напр. картка проєкту при наведенні */
+  --shadow-raised: 0 12px 32px rgb(27 33 48 / 12%);
 
   --transition-fast: 150ms ease;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);

@@ -4,7 +4,7 @@
   gap: 12px;
 }
 
-/* «Вікно браузера»: рядок адреси, під ним скріншот */
+/* «Вікно браузера»: смуга з кружечками й адресою, під нею скріншот. Усе вікно — посилання */
 .browser {
   display: flex;
   flex-direction: column;
@@ -13,25 +13,58 @@
   border: 1px solid var(--color-placeholder-border);
   border-radius: var(--radius-md);
   background: var(--color-placeholder);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* Підказка «клікається»: вікно піднімається й тоді, коли фокус на посиланні «Відкрити сайт» */
+.card:has(.link:focus-visible) .browser {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-raised);
+}
+
+/* Відгук на дотик: на телефоні наведення нема */
+.browser:active {
+  transform: translateY(-2px);
 }
 
 .toolbar {
   display: flex;
   flex-shrink: 0;
   align-items: center;
+  gap: 12px;
   height: 36px;
   padding-inline: 12px;
   border-bottom: 1px solid var(--color-placeholder-border);
   background: var(--color-surface);
 }
 
+/* Три кружечки вікна: смуга читається як браузер, а не як кнопка */
+.dots {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.dots > span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-placeholder-border);
+}
+
+/* Адреса — звичайним текстом, без пігулки; задовга обрізається трикрапкою */
 .address {
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  background: var(--color-bg);
+  min-width: 0;
+  overflow: hidden;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-text-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* next/image з fill розтягується на цей блок */
@@ -40,6 +73,7 @@
   flex-grow: 1;
 }
 
+/* Скріни 5:4 (див. projects.ts): у будь-якій рамці обрізається лише низ сторінки, боки цілі */
 .screenshot {
   object-fit: cover;
   object-position: top;
@@ -51,19 +85,28 @@
   gap: 6px;
 }
 
+/* Мітки, не кнопки: пласка рамка без заливки й звичайна вага — щоб не плутати з кнопками-пігулками */
 .badge {
   display: inline-flex;
   align-items: center;
-  height: 28px;
-  padding-inline: 10px;
-  border-radius: var(--radius-pill);
-  background: var(--color-bg);
+  gap: 6px;
+  height: 26px;
+  padding-inline: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
+  color: var(--color-text-muted);
 }
 
-.inDevelopment {
-  background: var(--color-accent-soft);
+/* «У розробці» — помаранчева крапка замість заливки */
+.inDevelopment::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
 }
 
 .title {
@@ -85,15 +128,29 @@
 }
 
 .link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   align-self: flex-start;
   font-size: 15px;
   font-weight: 800;
   transition: color var(--transition-fast);
 }
 
+.linkIcon {
+  flex-shrink: 0;
+  width: 0.9em;
+  height: 0.9em;
+}
+
 @media (hover: hover) {
   .link:hover {
     color: var(--color-link-hover);
+  }
+
+  .browser:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-raised);
   }
 }
 
@@ -111,17 +168,13 @@
     padding-inline: 14px;
   }
 
-  .address {
-    padding-inline: 12px;
-  }
-
   .badges {
     gap: 8px;
   }
 
   .badge {
-    height: 30px;
-    padding-inline: 12px;
+    height: 28px;
+    padding-inline: 10px;
     font-size: 13px;
   }
 
@@ -158,7 +211,6 @@
   }
 
   .address {
-    padding: 5px 14px;
     font-size: 13px;
   }
 

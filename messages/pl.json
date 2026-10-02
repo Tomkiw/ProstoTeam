@@ -64,7 +64,8 @@
     "inDevelopment": "W trakcie realizacji",
     "screenshotAlt": "Zrzut ekranu {title}",
     "openSite": "Otwórz stronę",
-    "openBot": "Otwórz bota"
+    "openBot": "Otwórz bota",
+    "opensInNewTab": "otwiera się w nowej karcie"
   },
   "process": {
     "title": "Jak pracujemy",

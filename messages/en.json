@@ -64,7 +64,8 @@
     "inDevelopment": "In development",
     "screenshotAlt": "Screenshot of {title}",
     "openSite": "Visit website",
-    "openBot": "Open bot"
+    "openBot": "Open bot",
+    "opensInNewTab": "opens in a new tab"
   },
   "process": {
     "title": "How we work",

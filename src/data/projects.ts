@@ -4,6 +4,9 @@ import type { Project } from '@/types/project';
  * Портфоліо. Щоб додати проєкт:
  * 1. Допишіть об'єкт у кінець масиву (порядок тут = порядок на сайті).
  * 2. Покладіть скріншот у public/images/projects/ і вкажіть шлях у `screenshot`.
+ *    Багатомовний проєкт — три скріни з мовою в назві (mindterms-uk.webp…) і об'єкт { uk, pl, en }.
+ *    Скрін — верх сторінки у пропорції 5:4 (вікно 1440×1150): тоді картка на будь-якій ширині обрізає
+ *    лише низ, а не боки. Формат — WebP, до 1600 px завширшки. Для бота — його сторінка на t.me у тій самій пропорції.
  * Опис і теги — одразу трьома мовами, інакше TypeScript не пропустить.
  */
 export const PROJECTS: Project[] = [
@@ -12,6 +15,11 @@ export const PROJECTS: Project[] = [
     title: 'mindterms',
     url: 'https://mindterms.vercel.app',
     displayUrl: 'mindterms.vercel.app',
+    screenshot: {
+      en: '/images/projects/mindterms-en.webp',
+      pl: '/images/projects/mindterms-pl.webp',
+      uk: '/images/projects/mindterms-uk.webp',
+    },
     kind: 'website',
     tags: [{ id: 'languages', label: { en: '3 languages', pl: '3 języki', uk: '3 мови' } }],
     description: {
@@ -25,6 +33,11 @@ export const PROJECTS: Project[] = [
     title: 'Cosmogram',
     url: 'https://cosmogram-front.vercel.app',
     displayUrl: 'cosmogram-front.vercel.app',
+    screenshot: {
+      en: '/images/projects/cosmogram-en.webp',
+      pl: '/images/projects/cosmogram-pl.webp',
+      uk: '/images/projects/cosmogram-uk.webp',
+    },
     kind: 'webapp',
     isInDevelopment: true,
     description: {
@@ -39,6 +52,7 @@ export const PROJECTS: Project[] = [
     title: 'GetMatch UA',
     url: 'https://t.me/getmatch_ua_bot',
     displayUrl: 't.me/getmatch_ua_bot',
+    screenshot: '/images/projects/getmatch-ua.webp',
     kind: 'telegramBot',
     description: {
       en: 'A dating bot: sign-up, profile browsing and mutual likes that open a chat.',

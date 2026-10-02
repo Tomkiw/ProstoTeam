@@ -64,7 +64,8 @@
     "inDevelopment": "У розробці",
     "screenshotAlt": "Скріншот {title}",
     "openSite": "Відкрити сайт",
-    "openBot": "Відкрити бота"
+    "openBot": "Відкрити бота",
+    "opensInNewTab": "відкривається в новій вкладці"
   },
   "process": {
     "title": "Як ми працюємо",
