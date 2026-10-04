@@ -20,7 +20,8 @@
   "header": {
     "openMenu": "Відкрити меню",
     "closeMenu": "Закрити меню",
-    "menuLabel": "Меню"
+    "menuLabel": "Меню",
+    "ctaShort": "Написати"
   },
   "languageSwitcher": {
     "label": "Вибір мови"

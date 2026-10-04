@@ -20,7 +20,8 @@
   "header": {
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "menuLabel": "Menu"
+    "menuLabel": "Menu",
+    "ctaShort": "Contact"
   },
   "languageSwitcher": {
     "label": "Choose language"

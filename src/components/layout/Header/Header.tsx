@@ -10,14 +10,16 @@ import { getSectionHref } from '@/lib/getSectionHref';
 import styles from './Header.module.css';
 
 /**
- * 375: лого + бургер. 768: + кнопка «Обговорити проєкт».
- * 1440: меню, перемикач мов і кнопка; бургер ховається.
+ * Закріплений угорі. 375: лого, «Написати» і бургер. 768: кнопка стає «Обговорити проєкт».
+ * З 1024: меню, перемикач мов і кнопка; бургер ховається.
+ * id="top" тут нема навмисно: на #top браузер і Next самі прокручують на початок сторінки,
+ * а якір на закріпленому header не прокрутив би нікуди — header і так на екрані.
  */
 export function Header() {
   const t = useTranslations();
 
   return (
-    <header id={SECTION_IDS.top} className={styles.header}>
+    <header className={styles.header}>
       <Container className={styles.inner}>
         <Logo />
 
@@ -27,12 +29,10 @@ export function Header() {
 
         <div className={styles.actions}>
           <LanguageSwitcher className={styles.languageSwitcher} />
-          {/* Обгортка керує видимістю: display на самій кнопці конфліктував би з її CSS-модулем */}
-          <div className={styles.cta}>
-            <Button href={getSectionHref(SECTION_IDS.contacts)} variant="dark">
-              {t('common.discussProject')}
-            </Button>
-          </div>
+          <Button href={getSectionHref(SECTION_IDS.contacts)} variant="dark">
+            <span className={styles.ctaShort}>{t('header.ctaShort')}</span>
+            <span className={styles.ctaFull}>{t('common.discussProject')}</span>
+          </Button>
           <MobileMenu />
         </div>
       </Container>

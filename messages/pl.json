@@ -20,7 +20,8 @@
   "header": {
     "openMenu": "Otwórz menu",
     "closeMenu": "Zamknij menu",
-    "menuLabel": "Menu"
+    "menuLabel": "Menu",
+    "ctaShort": "Napisz"
   },
   "languageSwitcher": {
     "label": "Wybierz język"

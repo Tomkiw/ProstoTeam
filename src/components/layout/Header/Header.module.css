@@ -1,5 +1,28 @@
+/*
+ * Закріплений угорі й завжди на екрані: без JS, без «стрибків» при прокрутці.
+ * Висота — токен --header-height: на ньому ж тримається scroll-padding-top у globals.css
+ */
 .header {
-  padding-block: var(--header-padding-block);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+}
+
+/*
+ * Напівпрозорий фон із розмиттям — окремим шаром: backdrop-filter на самому header зробив би
+ * його рамкою для position: fixed, і повноекранне мобільне меню стиснулося б до висоти header
+ */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in srgb, var(--color-bg) 85%, transparent);
+  backdrop-filter: blur(12px);
 }
 
 .inner {
@@ -10,14 +33,19 @@
 }
 
 .desktopNav,
-.languageSwitcher,
-.cta {
+.languageSwitcher {
   display: none;
 }
 
+/* На телефоні в кнопці коротке «Написати», з 768 — повне «Обговорити проєкт» */
+.ctaFull {
+  display: none;
+}
+
+/* До 1440 меню щільніше: на 1024 інакше не влазять лого, меню, мови й кнопка */
 .navList {
   display: flex;
-  gap: 32px;
+  gap: 24px;
   font-size: 16px;
   font-weight: 700;
 }
@@ -29,14 +57,25 @@
 }
 
 @media (min-width: 768px) {
-  .cta {
+  .ctaShort {
+    display: none;
+  }
+
+  .ctaFull {
+    display: inline;
+  }
+}
+
+/* З 1024 (ноутбуки) — меню й перемикач мов у header; бургер ховає MobileMenu.module.css */
+@media (min-width: 1024px) {
+  .desktopNav,
+  .languageSwitcher {
     display: block;
   }
 }
 
 @media (min-width: 1440px) {
-  .desktopNav,
-  .languageSwitcher {
-    display: block;
+  .navList {
+    gap: 32px;
   }
 }

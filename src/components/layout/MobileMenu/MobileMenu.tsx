@@ -17,7 +17,7 @@ import { useMobileMenu } from './useMobileMenu';
 const MENU_CONTACT_CHANNELS: ContactChannel[] = ['telegram', 'email'];
 const MENU_CONTACTS = CONTACTS.filter((contact) => MENU_CONTACT_CHANNELS.includes(contact.channel));
 
-/** Бургер і повноекранне меню для 375 / 768. На 1440 ховається — там меню в header. */
+/** Бургер і повноекранне меню для телефонів і планшетів. З 1024 ховається — там меню в header. */
 export function MobileMenu() {
   const t = useTranslations();
   const panelId = useId();

@@ -151,7 +151,8 @@
   }
 }
 
-@media (min-width: 1440px) {
+/* З 1024 меню вже в header (DESKTOP_MEDIA_QUERY у constants.ts) */
+@media (min-width: 1024px) {
   .root {
     display: none;
   }

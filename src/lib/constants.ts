@@ -1,11 +1,14 @@
 export const BRAND_NAME = 'PROSTO';
 
-/** Має збігатися з брейкпоінтом desktop у CSS. */
-export const DESKTOP_MEDIA_QUERY = '(min-width: 1440px)';
+/** З цієї ширини header показує десктопне меню, а бургер ховається. Має збігатися з CSS (Header, MobileMenu). */
+export const DESKTOP_MEDIA_QUERY = '(min-width: 1024px)';
 
 /** id секцій — це якорі в URL (/en#services), тому не перейменовувати без потреби. */
 export const SECTION_IDS = {
-  /** Верх сторінки — сам header: лого веде сюди, і хедер лишається на екрані. */
+  /**
+   * Верх сторінки: сюди веде лого. Елемента з таким id нема навмисно —
+   * на #top браузер (за стандартом HTML) і Next самі прокручують на початок сторінки.
+   */
   top: 'top',
   about: 'about',
   services: 'services',
