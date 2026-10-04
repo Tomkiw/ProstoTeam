@@ -19,7 +19,6 @@ export const PROJECTS: Project[] = [
       pl: 'Słownik psychologii prostym językiem: 48 pojęć w 12 tematach, z poziomami dowodów i źródłami.',
       uk: 'Довідник з психології простою мовою: 48 понять у 12 темах, з рівнями доказовості та джерелами.',
     },
-    screenshot: '/images/projects/mindterms.webp',
   },
   {
     id: 'cosmogram',
@@ -34,7 +33,6 @@ export const PROJECTS: Project[] = [
       uk: 'Астрологія та нумерологія: реєстрація, розрахунок матриці долі, інтерфейс трьома мовами.',
     },
     stack: ['Next.js', 'React', 'Zustand', 'Express', 'MongoDB', 'Cloudinary'],
-    screenshot: '/images/projects/cosmogram.webp',
   },
   {
     id: 'getmatch-ua',
@@ -54,6 +52,7 @@ export const PROJECTS: Project[] = [
     title: 'Recipool',
     url: 'https://recipool.vercel.app',
     displayUrl: 'recipool.vercel.app',
+    screenshot: '/images/projects/recipool.webp',
     kind: 'webapp',
     description: {
       en: 'A shared recipe book: search and filters, sign-up, favourites and publishing your own recipes with photos.',
