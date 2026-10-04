@@ -66,6 +66,7 @@ export const PROJECTS: Project[] = [
     title: 'Recipool',
     url: 'https://recipool.vercel.app',
     displayUrl: 'recipool.vercel.app',
+    screenshot: '/images/projects/recipool.webp',
     kind: 'webapp',
     description: {
       en: 'A shared recipe book: search and filters, sign-up, favourites and publishing your own recipes with photos.',
