@@ -48,6 +48,7 @@
   "services": {
     "title": "What we do",
     "note": "Prices and timelines are approximate. We'll give you an exact quote after a call.",
+    "discuss": "Discuss",
     "columns": {
       "service": "Service",
       "includes": "What's included",
@@ -101,8 +102,9 @@
     "responseTime": "We'll reply within [N] hours on business days.",
     "channels": {
       "telegram": "Telegram",
-      "email": "Email",
-      "phone": "Phone"
+      "whatsapp": "WhatsApp",
+      "viber": "Viber",
+      "email": "Email"
     }
   },
   "contactForm": {

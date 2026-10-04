@@ -1,3 +1,4 @@
+/* Секція About біла, тож картка — світло-сіра: видно межі, але без тіні й не схожа на кнопку */
 .card {
   display: flex;
   flex-direction: column;
@@ -5,10 +6,10 @@
   height: 100%;
   padding: 20px;
   border-radius: var(--radius-lg);
-  background: var(--color-surface);
+  background: var(--color-bg);
 }
 
-/* До 1440 кружечок стоїть поруч з ім'ям, на 1440 — над ним */
+/* До десктопа кружечок стоїть поруч з ім'ям, з 1280 — над ним */
 .head {
   display: flex;
   align-items: center;
@@ -76,7 +77,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   .card {
     gap: 14px;
     padding: 28px;

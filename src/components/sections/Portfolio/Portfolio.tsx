@@ -6,7 +6,7 @@ import { SECTION_IDS } from '@/lib/constants';
 import { ProjectCard } from './ProjectCard';
 import styles from './Portfolio.module.css';
 
-/** Наші роботи: 375 — колонка, 768 — дві колонки, 1440 — сітка 7/5 → 5/7. Макет: *-portfolio. */
+/** Наші роботи: 375 — колонка, 768 — дві колонки, з 1280 — сітка 7/5 → 5/7. Макет: *-portfolio. */
 export function Portfolio() {
   const t = useTranslations('portfolio');
 

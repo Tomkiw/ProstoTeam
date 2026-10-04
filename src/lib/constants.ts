@@ -22,6 +22,12 @@ export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS];
 /** id тегу main: сюди веде посилання «Перейти до вмісту». */
 export const MAIN_CONTENT_ID = 'main';
 
+/**
+ * Подія в браузері: «Обговорити» в рядку послуги просить форму заявки вибрати цю послугу.
+ * detail — id послуги з SERVICES. Секції незалежні, тож подія простіша за спільний стан.
+ */
+export const SERVICE_SELECT_EVENT = 'prosto:select-service';
+
 /** Варіант «Інша країна» біля поля телефону: тоді номер вводять повністю, з «+» і кодом країни. */
 export const OTHER_PHONE_COUNTRY = 'OTHER';
 

@@ -1,0 +1,38 @@
+/* Як «Відкрити сайт» у портфоліо: жирне підкреслене посилання з іконкою, а не ще одна кнопка в кожному рядку */
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  font-weight: 800;
+  text-underline-offset: 4px;
+  transition: color var(--transition-fast);
+}
+
+.link:active {
+  color: var(--color-link-hover);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 0.9em;
+  height: 0.9em;
+  transition: transform var(--transition-fast);
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: var(--color-link-hover);
+  }
+
+  /* Стрілка трохи їде вперед — підказка «перейти» */
+  .link:hover .icon {
+    transform: translateX(2px);
+  }
+}
+
+@media (min-width: 768px) {
+  .link {
+    font-size: 16px;
+  }
+}

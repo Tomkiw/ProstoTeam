@@ -2,8 +2,9 @@
  * Дизайн-токени PROSTO. Макет mobile-first: 375 → 768 → 1440.
  * У медіазапитах CSS-змінні не працюють, тому брейкпоінти пишемо числами:
  *   tablet  — @media (min-width: 768px)
- *   laptop  — @media (min-width: 1024px): поки лише header з десктопним меню, секції — як на планшеті
- *   desktop — @media (min-width: 1440px)
+ *   laptop  — @media (min-width: 1024px): лише header з десктопним меню, секції — як на планшеті
+ *   desktop — @media (min-width: 1280px): макет 1440; ноутбуки 1280–1366 отримують його ж,
+ *             ширини там гумові (fr, vw), тож усе стискається пропорційно
  */
 :root {
   /* Кольори */
@@ -87,7 +88,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   :root {
     --container-padding: 80px;
     --header-padding-block: 28px;
@@ -190,9 +191,14 @@ a {
   }
 }
 
-/* Текст для скрінрідерів, невидимий на екрані */
+/*
+ * Текст для скрінрідерів, невидимий на екрані.
+ * Системний шрифт: інакше браузер вантажив би веб-шрифт заради невидимих літер —
+ * напр. кирилицю на /pl через приховане «Українська» в перемикачі мов
+ */
 .visually-hidden {
   position: absolute;
+  font-family: system-ui, sans-serif;
   width: 1px;
   height: 1px;
   margin: -1px;

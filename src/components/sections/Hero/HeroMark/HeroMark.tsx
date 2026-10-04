@@ -1,6 +1,7 @@
 import { useLocale } from 'next-intl';
 import { TEAM } from '@/data/team';
 import { cn } from '@/lib/cn';
+import { bindShortWords } from '@/lib/typography';
 import type { TeamMember } from '@/types/team';
 import styles from './HeroMark.module.css';
 
@@ -13,7 +14,7 @@ type MarkCircleProps = {
   className: string;
 };
 
-/** Кружечок-«о» в лого. На 1440 усередині — ім'я й роль учасника команди. */
+/** Кружечок-«о» в лого. На десктопі (з 1280) усередині — ім'я й роль учасника команди. */
 function MarkCircle({ member, className }: MarkCircleProps) {
   const locale = useLocale();
 
@@ -22,7 +23,7 @@ function MarkCircle({ member, className }: MarkCircleProps) {
       {member && (
         <span className={styles.member}>
           <span className={styles.name}>{member.name[locale]}</span>
-          <span className={styles.role}>{member.shortRole[locale]}</span>
+          <span className={styles.role}>{bindShortWords(member.shortRole[locale])}</span>
         </span>
       )}
     </span>

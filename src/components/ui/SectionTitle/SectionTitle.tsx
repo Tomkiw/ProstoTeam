@@ -6,7 +6,7 @@ type SectionTitleSize = 'md' | 'lg';
 
 type SectionTitleProps = {
   children: ReactNode;
-  /** md — більшість секцій (44px на 1440), lg — контакти (52px на 1440). */
+  /** md — більшість секцій (44px на десктопі), lg — контакти (52px на десктопі). */
   size?: SectionTitleSize;
   className?: string;
 };

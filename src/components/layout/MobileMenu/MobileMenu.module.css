@@ -76,46 +76,10 @@
   margin-top: auto;
 }
 
-.bottomRow {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 /* Колонковий flex розтягує кнопку на всю ширину */
 .cta {
   display: flex;
   flex-direction: column;
-}
-
-.contacts {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 15px;
-}
-
-.contact {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.contactLabel {
-  color: var(--color-inverse-text-muted);
-}
-
-/* anywhere — довга пошта на 320 переноситься, а не вилазить за край */
-.contactLink {
-  font-weight: 700;
-  text-decoration: none;
-  overflow-wrap: anywhere;
-  transition: color var(--transition-fast);
-}
-
-.contactLink:hover,
-.contactLink:active {
-  color: var(--color-link-hover);
 }
 
 @media (min-width: 768px) {
@@ -129,25 +93,8 @@
     font-size: 36px;
   }
 
-  .bottomRow {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-  }
-
   .cta {
     display: block;
-  }
-
-  .contacts {
-    gap: 8px;
-    text-align: right;
-  }
-
-  .contact {
-    justify-content: flex-end;
-    gap: 4px;
   }
 }
 

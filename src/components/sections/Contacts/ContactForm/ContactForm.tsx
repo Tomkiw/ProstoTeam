@@ -15,7 +15,7 @@ import { Button } from '@/components/ui/Button';
 import { CONTACTS } from '@/data/contacts';
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/cn';
-import { OTHER_PHONE_COUNTRY } from '@/lib/constants';
+import { OTHER_PHONE_COUNTRY, SERVICE_SELECT_EVENT } from '@/lib/constants';
 import type { PhoneCountryOption } from '@/types/phone';
 import {
   HONEYPOT_FIELD,
@@ -200,6 +200,7 @@ export function ContactForm({
   const id = useId();
   const formRef = useRef<HTMLFormElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
+  const serviceRef = useRef<HTMLSelectElement>(null);
   const [errors, setErrors] = useState<LeadErrors>({});
   const [phoneCountry, setPhoneCountry] = useState(defaultPhoneCountry);
   const [status, setStatus] = useState<SubmitStatus>('idle');
@@ -215,6 +216,18 @@ export function ContactForm({
       successRef.current?.focus();
     }
   }, [status]);
+
+  // «Обговорити» в рядку послуги (DiscussServiceLink) одразу вибирає її тут
+  useEffect(() => {
+    function handleServiceSelect(event: Event) {
+      if (event instanceof CustomEvent && typeof event.detail === 'string' && serviceRef.current) {
+        serviceRef.current.value = event.detail;
+      }
+    }
+
+    window.addEventListener(SERVICE_SELECT_EVENT, handleServiceSelect);
+    return () => window.removeEventListener(SERVICE_SELECT_EVENT, handleServiceSelect);
+  }, []);
 
   function clearFieldError(field: RequiredLeadField) {
     setErrors((currentErrors) => ({ ...currentErrors, [field]: undefined }));
@@ -350,6 +363,7 @@ export function ContactForm({
         </label>
         <div className={styles.selectWrapper}>
           <select
+            ref={serviceRef}
             id={serviceId}
             name="service"
             defaultValue=""

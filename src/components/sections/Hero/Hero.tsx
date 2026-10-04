@@ -5,6 +5,7 @@ import { TEAM } from '@/data/team';
 import { cn } from '@/lib/cn';
 import { SECTION_IDS } from '@/lib/constants';
 import { getSectionHref } from '@/lib/getSectionHref';
+import { bindShortWords } from '@/lib/typography';
 import styles from './Hero.module.css';
 import { HeroMark } from './HeroMark';
 
@@ -32,12 +33,12 @@ export function Hero() {
 
         <HeroMark className={styles.mark} />
 
-        {/* До 1440 команда — списком; на 1440 список ховається, бо імена вже в кружечках лого */}
+        {/* До десктопа команда — списком; з 1280 список ховається, бо імена вже в кружечках лого */}
         <ul role="list" className={styles.team}>
           {TEAM.map((member) => (
             <li key={member.id} className={styles.member}>
               <span className={cn(styles.dot, styles[member.color])} aria-hidden="true" />
-              {member.name[locale]}, {member.shortRole[locale]}
+              {member.name[locale]}, {bindShortWords(member.shortRole[locale])}
             </li>
           ))}
         </ul>

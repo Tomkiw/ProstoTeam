@@ -104,7 +104,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   .hero {
     padding-block: 56px 80px;
   }

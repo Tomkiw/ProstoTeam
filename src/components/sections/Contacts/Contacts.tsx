@@ -1,7 +1,7 @@
 import { useLocale, useTranslations } from 'next-intl';
+import { ContactChannels } from '@/components/ui/ContactChannels';
 import { Container } from '@/components/ui/Container';
 import { SectionTitle } from '@/components/ui/SectionTitle';
-import { CONTACTS } from '@/data/contacts';
 import { SERVICES } from '@/data/services';
 import { SECTION_IDS } from '@/lib/constants';
 import { DEFAULT_PHONE_COUNTRY, getPhoneCountryOptions } from '@/lib/phone';
@@ -26,16 +26,7 @@ export function Contacts() {
             {t('title')}
           </SectionTitle>
           <p className={styles.responseTime}>{t('responseTime')}</p>
-          <ul role="list" className={styles.channels}>
-            {CONTACTS.map((contact) => (
-              <li key={contact.channel} className={styles.channel}>
-                <span className={styles.channelLabel}>{t(`channels.${contact.channel}`)}</span>
-                <a href={contact.href} className={styles.channelLink}>
-                  {contact.value}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <ContactChannels className={styles.channels} />
         </div>
         <div className={styles.form}>
           <ContactForm

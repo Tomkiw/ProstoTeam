@@ -16,17 +16,19 @@ import { getSiteUrl, isIndexingAllowed } from '@/lib/site';
 import type { LocaleParams } from '@/types/i18n';
 import '../globals.css';
 
-// latin-ext — для польських ą ę ł ż, cyrillic — для української.
+// Без preload: next/font і так описує всі набори символів (латиниця, польські ą ę ł ż, кирилиця),
+// а браузер вантажить лише ті, що є на сторінці. З preload кожна мова тягнула б наперед усі —
+// /pl вантажив би кирилицю, а /uk польські літери (разом ~250 KB шрифтів на сторінку).
 const manrope = Manrope({
-  subsets: ['latin', 'latin-ext', 'cyrillic'],
   variable: '--font-manrope',
   display: 'swap',
+  preload: false,
 });
 
 const unbounded = Unbounded({
-  subsets: ['latin', 'latin-ext', 'cyrillic'],
   variable: '--font-unbounded',
   display: 'swap',
+  preload: false,
 });
 
 type LocaleLayoutProps = {

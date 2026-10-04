@@ -5,17 +5,12 @@ import { useId } from 'react';
 import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher';
 import { NavList } from '@/components/layout/NavList';
 import { Button } from '@/components/ui/Button';
+import { ContactChannels } from '@/components/ui/ContactChannels';
 import { Logo } from '@/components/ui/Logo';
-import { CONTACTS } from '@/data/contacts';
 import { SECTION_IDS } from '@/lib/constants';
 import { getSectionHref } from '@/lib/getSectionHref';
-import type { ContactChannel } from '@/types/contact';
 import styles from './MobileMenu.module.css';
 import { useMobileMenu } from './useMobileMenu';
-
-// У макеті в меню лише Telegram і пошта; телефон — у секції контактів.
-const MENU_CONTACT_CHANNELS: ContactChannel[] = ['telegram', 'email'];
-const MENU_CONTACTS = CONTACTS.filter((contact) => MENU_CONTACT_CHANNELS.includes(contact.channel));
 
 /** Бургер і повноекранне меню для телефонів і планшетів. З 1024 ховається — там меню в header. */
 export function MobileMenu() {
@@ -101,29 +96,14 @@ export function MobileMenu() {
         <div className={styles.bottom}>
           <LanguageSwitcher tone="light" />
 
-          <div className={styles.bottomRow}>
-            {/* Обгортка: на 375 розтягує кнопку на всю ширину, на 768 — повертає природну */}
-            <div className={styles.cta}>
-              <Button href={getSectionHref(SECTION_IDS.contacts)} size="lg" onClick={handleClose}>
-                {t('common.discussProject')}
-              </Button>
-            </div>
-
-            {MENU_CONTACTS.length > 0 && (
-              <ul role="list" className={styles.contacts}>
-                {MENU_CONTACTS.map((contact) => (
-                  <li key={contact.channel} className={styles.contact}>
-                    <span className={styles.contactLabel}>
-                      {t(`contacts.channels.${contact.channel}`)}
-                    </span>
-                    <a href={contact.href} className={styles.contactLink}>
-                      {contact.value}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
+          {/* Обгортка: на 375 розтягує кнопку на всю ширину, на 768 — повертає природну */}
+          <div className={styles.cta}>
+            <Button href={getSectionHref(SECTION_IDS.contacts)} size="lg" onClick={handleClose}>
+              {t('common.discussProject')}
+            </Button>
           </div>
+
+          <ContactChannels />
         </div>
       </div>
     </div>

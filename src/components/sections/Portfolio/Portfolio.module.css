@@ -32,7 +32,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   /* Заголовок зліва, примітка справа — по нижньому краю */
   .heading {
     display: flex;

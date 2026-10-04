@@ -48,6 +48,7 @@
   "services": {
     "title": "Co robimy",
     "note": "Ceny i terminy są orientacyjne. Dokładną kwotę podajemy po rozmowie.",
+    "discuss": "Omówmy",
     "columns": {
       "service": "Usługa",
       "includes": "Co obejmuje",
@@ -101,8 +102,9 @@
     "responseTime": "Odpowiemy w ciągu [N] godzin w dni robocze.",
     "channels": {
       "telegram": "Telegram",
-      "email": "E-mail",
-      "phone": "Telefon"
+      "whatsapp": "WhatsApp",
+      "viber": "Viber",
+      "email": "E-mail"
     }
   },
   "contactForm": {

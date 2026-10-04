@@ -7,7 +7,7 @@ import styles from './Process.module.css';
 // Порядок кроків. Ключі збігаються з process.steps.* у перекладах.
 const PROCESS_STEPS = ['talk', 'structure', 'build', 'launch', 'support'] as const;
 
-/** Етапи роботи: до 1440 — список з номерами, на 1440 — п'ять колонок. Макет: *-process. */
+/** Етапи роботи: до десктопа — список з номерами, з 1280 — п'ять колонок. Макет: *-process. */
 export function Process() {
   const t = useTranslations('process');
 
