@@ -5,6 +5,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import type { ReactNode } from 'react';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
+import { SameHashScroll } from '@/components/layout/SameHashScroll';
 import { SkipLink } from '@/components/layout/SkipLink';
 import { pickClientMessages } from '@/i18n/clientMessages';
 import { initRequestLocale } from '@/i18n/initRequestLocale';
@@ -76,6 +77,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           <Header />
           <main id={MAIN_CONTENT_ID}>{children}</main>
           <Footer />
+          <SameHashScroll />
         </NextIntlClientProvider>
       </body>
     </html>
