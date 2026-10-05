@@ -8,9 +8,12 @@ import { DiscussServiceLink } from './DiscussServiceLink';
 import styles from './Services.module.css';
 
 // Порядок колонок таблиці (з 1280). Ключі збігаються з services.columns.* у перекладах.
-const SERVICE_COLUMNS = ['service', 'includes', 'duration', 'price'] as const;
+const SERVICE_COLUMNS = ['service', 'includes'] as const;
 
-/** Послуги з термінами й цінами: до десктопа — список, з 1280 — таблиця. Макет: *-services. */
+/**
+ * Послуги: до десктопа — список, з 1280 — таблиця. Макет: *-services.
+ * Колонок «Термін» і «Ціна» з макета нема, доки ціни не визначені (TODO.md).
+ */
 export function Services() {
   const t = useTranslations('services');
   const locale = useLocale();
@@ -35,16 +38,6 @@ export function Services() {
             <li key={service.id} className={styles.row}>
               <h3 className={styles.name}>{service.title[locale]}</h3>
               <p className={styles.description}>{bindShortWords(service.description[locale])}</p>
-              <dl className={styles.terms}>
-                <div className={styles.duration}>
-                  <dt className="visually-hidden">{t('columns.duration')}</dt>
-                  <dd>{service.duration[locale]}</dd>
-                </div>
-                <div className={styles.price}>
-                  <dt className="visually-hidden">{t('columns.price')}</dt>
-                  <dd>{service.price[locale]}</dd>
-                </div>
-              </dl>
               <div className={styles.discuss}>
                 <DiscussServiceLink
                   serviceId={service.id}

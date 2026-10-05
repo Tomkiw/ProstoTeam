@@ -47,13 +47,11 @@
   },
   "services": {
     "title": "What we do",
-    "note": "Prices and timelines are approximate. We'll give you an exact quote after a call.",
+    "note": "Cost and timeline depend on the project — we'll give you an exact quote after a short call.",
     "discuss": "Discuss",
     "columns": {
       "service": "Service",
-      "includes": "What's included",
-      "duration": "Timeline",
-      "price": "Price"
+      "includes": "What's included"
     }
   },
   "portfolio": {

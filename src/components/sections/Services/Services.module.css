@@ -39,28 +39,6 @@
   line-height: 1.55;
 }
 
-/* Термін і ціна в один рядок: на 375 — по краях, з 768 — поруч */
-.terms {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  margin: 4px 0 0;
-  font-size: 15px;
-}
-
-.terms dd {
-  margin: 0;
-}
-
-.duration {
-  font-weight: 600;
-  color: var(--color-text-muted);
-}
-
-.price {
-  font-weight: 800;
-}
-
 .discuss {
   margin-top: 6px;
 }
@@ -76,16 +54,13 @@
     margin-top: 32px;
   }
 
-  /* Зліва назва, під нею термін і ціна; справа опис, під ним «Обговорити» */
+  /* Зліва назва; справа опис, під ним «Обговорити». З 1280 — те саме, лише ширші колонки */
   .row {
     display: grid;
     grid-template-areas:
       'name description'
-      'terms description'
       '. discuss';
     grid-template-columns: 240px minmax(0, 1fr);
-    /* 1fr забирає зайву висоту довгого опису, тож термін і ціна тримаються одразу під назвою */
-    grid-template-rows: auto 1fr auto;
     gap: 8px 32px;
     padding-block: 24px;
   }
@@ -103,12 +78,6 @@
   .description {
     grid-area: description;
     font-size: 16px;
-  }
-
-  .terms {
-    grid-area: terms;
-    justify-content: flex-start;
-    margin-top: 0;
   }
 }
 
@@ -130,7 +99,7 @@
   .head,
   .row {
     display: grid;
-    grid-template-columns: 320px minmax(0, 1fr) 160px 200px;
+    grid-template-columns: 320px minmax(0, 1fr);
     column-gap: 40px;
   }
 
@@ -146,12 +115,7 @@
     margin-top: 0;
   }
 
-  /* Другий рядок сітки — «Обговорити» під описом */
   .row {
-    grid-template-areas:
-      'name description terms terms'
-      '. discuss . .';
-    grid-template-rows: none;
     align-items: baseline;
     row-gap: 12px;
     padding-block: 32px;
@@ -163,18 +127,5 @@
 
   .description {
     font-size: 17px;
-  }
-
-  /* subgrid ставить термін і ціну в 3-тю і 4-ту колонки рядка.
-     gap: normal — щоб узяти проміжок 40px від рядка, а не наші 16px */
-  .terms {
-    display: grid;
-    grid-template-columns: subgrid;
-    gap: normal;
-    font-size: 17px;
-  }
-
-  .duration {
-    color: var(--color-text);
   }
 }

@@ -47,13 +47,11 @@
   },
   "services": {
     "title": "Co robimy",
-    "note": "Ceny i terminy są orientacyjne. Dokładną kwotę podajemy po rozmowie.",
+    "note": "Koszt i termin zależą od projektu — dokładną wycenę podamy po krótkiej rozmowie.",
     "discuss": "Omówmy",
     "columns": {
       "service": "Usługa",
-      "includes": "Co obejmuje",
-      "duration": "Termin",
-      "price": "Cena"
+      "includes": "Co obejmuje"
     }
   },
   "portfolio": {
