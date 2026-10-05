@@ -1,5 +1,6 @@
 import { useLocale } from 'next-intl';
 import { cn } from '@/lib/cn';
+import { bindShortWords } from '@/lib/typography';
 import type { TeamMember } from '@/types/team';
 import styles from './TeamCard.module.css';
 
@@ -17,10 +18,10 @@ export function TeamCard({ member }: TeamCardProps) {
         <span className={cn(styles.avatar, styles[member.color])} aria-hidden="true" />
         <div className={styles.identity}>
           <h3 className={styles.name}>{member.name[locale]}</h3>
-          <p className={styles.role}>{member.role[locale]}</p>
+          <p className={styles.role}>{bindShortWords(member.role[locale])}</p>
         </div>
       </div>
-      <p className={styles.bio}>{member.bio[locale]}</p>
+      <p className={styles.bio}>{bindShortWords(member.bio[locale])}</p>
       <p className={styles.stack}>{member.stack.join(', ')}</p>
     </article>
   );

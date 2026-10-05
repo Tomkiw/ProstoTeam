@@ -11,7 +11,7 @@ const ABOUT_FEATURES = ['noJargon', 'handover'] as const;
 
 /**
  * Про команду. Порядок у DOM — мобільний (заголовок, лід, картки, переваги);
- * на 1440 grid ставить переваги в ліву колонку під лід, а картки — праворуч.
+ * з 1280 grid ставить переваги в ліву колонку під лід, а картки — праворуч.
  */
 export function About() {
   const t = useTranslations('about');

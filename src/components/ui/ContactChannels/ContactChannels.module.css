@@ -1,0 +1,90 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+/* На телефоні — стовпчиком на всю ширину, як кнопки в Hero: зручно під палець і без «хвоста» з однієї кнопки */
+.messengers {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  gap: 10px;
+}
+
+/* Кнопка-контур, як «Подивитися роботи», лише для темного фону: пігулка — значить, натискається */
+.messenger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 48px;
+  padding-inline: 18px 22px;
+  border: 1.5px solid var(--color-inverse-border-strong);
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+/* Відгук на дотик: кнопка трохи «вдавлюється», як Button */
+.messenger:active {
+  transform: scale(0.97);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+/* Посилання з іконкою й підкресленням; anywhere — довга адреса на 320 переноситься, а не вилазить */
+.email {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-underline-offset: 4px;
+  transition: color var(--transition-fast);
+}
+
+.email:active {
+  color: var(--color-link-hover);
+}
+
+@media (hover: hover) {
+  .messenger:hover {
+    border-color: var(--color-link-hover);
+    background: color-mix(in srgb, var(--color-inverse-text) 8%, transparent);
+  }
+
+  .email:hover {
+    color: var(--color-link-hover);
+  }
+}
+
+/* З 768 — рядком, кнопки за шириною тексту */
+@media (min-width: 768px) {
+  .messengers {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self: auto;
+  }
+
+  .messenger {
+    display: inline-flex;
+    height: 52px;
+    font-size: 16px;
+  }
+
+  .email {
+    font-size: 17px;
+  }
+}

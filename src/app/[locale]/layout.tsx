@@ -5,6 +5,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import type { ReactNode } from 'react';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
+import { SameHashScroll } from '@/components/layout/SameHashScroll';
 import { SkipLink } from '@/components/layout/SkipLink';
 import { pickClientMessages } from '@/i18n/clientMessages';
 import { initRequestLocale } from '@/i18n/initRequestLocale';
@@ -16,17 +17,19 @@ import { getSiteUrl, isIndexingAllowed } from '@/lib/site';
 import type { LocaleParams } from '@/types/i18n';
 import '../globals.css';
 
-// latin-ext — для польських ą ę ł ż, cyrillic — для української.
+// Без preload: next/font і так описує всі набори символів (латиниця, польські ą ę ł ż, кирилиця),
+// а браузер вантажить лише ті, що є на сторінці. З preload кожна мова тягнула б наперед усі —
+// /pl вантажив би кирилицю, а /uk польські літери (разом ~250 KB шрифтів на сторінку).
 const manrope = Manrope({
-  subsets: ['latin', 'latin-ext', 'cyrillic'],
   variable: '--font-manrope',
   display: 'swap',
+  preload: false,
 });
 
 const unbounded = Unbounded({
-  subsets: ['latin', 'latin-ext', 'cyrillic'],
   variable: '--font-unbounded',
   display: 'swap',
+  preload: false,
 });
 
 type LocaleLayoutProps = {
@@ -74,6 +77,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           <Header />
           <main id={MAIN_CONTENT_ID}>{children}</main>
           <Footer />
+          <SameHashScroll />
         </NextIntlClientProvider>
       </body>
     </html>

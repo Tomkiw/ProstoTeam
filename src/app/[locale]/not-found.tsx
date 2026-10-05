@@ -9,11 +9,13 @@ export default function NotFound() {
   return (
     <section className={styles.section}>
       <Container className={styles.inner}>
-        <h1>{t('title')}</h1>
-        <p>{t('text')}</p>
-        <Button href="/" size="lg">
-          {t('backHome')}
-        </Button>
+        <h1 className={styles.title}>{t('title')}</h1>
+        <p className={styles.text}>{t('text')}</p>
+        <div className={styles.actions}>
+          <Button href="/" size="lg">
+            {t('backHome')}
+          </Button>
+        </div>
       </Container>
     </section>
   );

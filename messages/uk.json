@@ -20,7 +20,8 @@
   "header": {
     "openMenu": "Відкрити меню",
     "closeMenu": "Закрити меню",
-    "menuLabel": "Меню"
+    "menuLabel": "Меню",
+    "ctaShort": "Написати"
   },
   "languageSwitcher": {
     "label": "Вибір мови"
@@ -47,6 +48,7 @@
   "services": {
     "title": "Що ми робимо",
     "note": "Ціни й терміни орієнтовні. Точну суму називаємо після розмови.",
+    "discuss": "Обговорити",
     "columns": {
       "service": "Послуга",
       "includes": "Що входить",
@@ -100,8 +102,9 @@
     "responseTime": "Відповімо протягом [N] годин у робочі дні.",
     "channels": {
       "telegram": "Telegram",
-      "email": "Пошта",
-      "phone": "Телефон"
+      "whatsapp": "WhatsApp",
+      "viber": "Viber",
+      "email": "Пошта"
     }
   },
   "contactForm": {

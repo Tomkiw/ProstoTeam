@@ -22,8 +22,8 @@ export default function ErrorPage({ retry }: ErrorPageProps) {
   return (
     <section className={styles.section}>
       <Container className={styles.inner}>
-        <h1>{t('title')}</h1>
-        <p>{t('text')}</p>
+        <h1 className={styles.title}>{t('title')}</h1>
+        <p className={styles.text}>{t('text')}</p>
         <div className={styles.actions}>
           <Button size="lg" onClick={retry}>
             {t('retry')}

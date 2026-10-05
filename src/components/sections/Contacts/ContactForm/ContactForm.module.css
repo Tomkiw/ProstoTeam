@@ -1,8 +1,12 @@
-/* Світла картка на темному фоні секції: повертаємо світлі кольори фокуса й ховера */
+/*
+ * Світла картка на темному фоні секції: повертаємо світлі кольори фокуса й ховера.
+ * container-type — щоб розкладка полів залежала від ширини самої форми, а не екрана (див. .row)
+ */
 .card {
   --color-focus: var(--color-primary);
   --color-link-hover: var(--color-primary);
 
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -19,11 +23,21 @@
   line-height: 1.2;
 }
 
-/* Ім'я й контакт: на 375 одне під одним, з 768 — в один ряд */
+/*
+ * Ім'я й телефон: одне під одним, а коли форма ширша за 520px — в один ряд.
+ * Залежить від ширини форми: на ноутбуці 1280 вона в 6 колонках із 12, і в ряд телефон не влазить
+ */
 .row {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+@container (min-width: 520px) {
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .field {
@@ -211,11 +225,6 @@
     font-size: 24px;
   }
 
-  .row {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .input,
   .select {
     padding-inline: 16px;
@@ -249,7 +258,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   .card {
     gap: 24px;
     padding: 40px;

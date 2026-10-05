@@ -2,7 +2,9 @@
  * Дизайн-токени PROSTO. Макет mobile-first: 375 → 768 → 1440.
  * У медіазапитах CSS-змінні не працюють, тому брейкпоінти пишемо числами:
  *   tablet  — @media (min-width: 768px)
- *   desktop — @media (min-width: 1440px)
+ *   laptop  — @media (min-width: 1024px): лише header з десктопним меню, секції — як на планшеті
+ *   desktop — @media (min-width: 1280px): макет 1440; ноутбуки 1280–1366 отримують його ж,
+ *             ширини там гумові (fr, vw), тож усе стискається пропорційно
  */
 :root {
   /* Кольори */
@@ -44,6 +46,9 @@
   --container-max-width: 1440px;
   --container-padding: 20px;
   --header-padding-block: 16px;
+  /* Висота закріпленого header. На неї ж — scroll-padding-top: секція після переходу з меню
+     і елемент у фокусі не ховаються під header */
+  --header-height: 76px;
   --section-padding-block: 40px;
   --grid-gap: 24px;
 
@@ -62,6 +67,7 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   /* Легкий «перескок» — для кружечка в меню */
   --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --z-header: 50;
   --z-mobile-menu: 100;
   /* «Перейти до вмісту» — поверх усього */
   --z-skip-link: 200;
@@ -71,14 +77,22 @@
   :root {
     --container-padding: 32px;
     --header-padding-block: 20px;
+    --header-height: 84px;
     --section-padding-block: 60px;
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 88px;
+  }
+}
+
+@media (min-width: 1280px) {
   :root {
     --container-padding: 80px;
     --header-padding-block: 28px;
+    --header-height: 104px;
     --section-padding-block: 80px;
   }
 }
@@ -91,6 +105,7 @@
 }
 
 html {
+  scroll-padding-top: var(--header-height);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -100,7 +115,12 @@ html {
   }
 }
 
+/* Колонка на всю висоту екрана: на короткій сторінці (404, збій) footer притиснутий донизу */
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   min-width: 320px;
   background: var(--color-bg);
@@ -108,6 +128,10 @@ body {
   font-family: var(--font-body);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex-grow: 1;
 }
 
 h1,
@@ -167,9 +191,14 @@ a {
   }
 }
 
-/* Текст для скрінрідерів, невидимий на екрані */
+/*
+ * Текст для скрінрідерів, невидимий на екрані.
+ * Системний шрифт: інакше браузер вантажив би веб-шрифт заради невидимих літер —
+ * напр. кирилицю на /pl через приховане «Українська» в перемикачі мов
+ */
 .visually-hidden {
   position: absolute;
+  font-family: system-ui, sans-serif;
   width: 1px;
   height: 1px;
   margin: -1px;

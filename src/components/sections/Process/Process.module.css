@@ -70,7 +70,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   /* П'ять кроків у ряд, над кожним — темна лінія */
   .steps {
     display: grid;

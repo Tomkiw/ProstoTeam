@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { cn } from '@/lib/cn';
+import { bindShortWords } from '@/lib/typography';
 import type { Project } from '@/types/project';
 import styles from './ProjectCard.module.css';
 
@@ -8,8 +9,8 @@ type ProjectCardProps = {
   project: Project;
 };
 
-// Скріншот на всю ширину картки; на 1440 широка картка займає 7 з 12 колонок (≈740px)
-const SCREENSHOT_SIZES = '(min-width: 1440px) 740px, (min-width: 768px) 50vw, 100vw';
+// Скріншот на всю ширину картки; з 1280 широка картка займає 7 з 12 колонок (до ≈740px на 1440)
+const SCREENSHOT_SIZES = '(min-width: 1280px) 740px, (min-width: 768px) 50vw, 100vw';
 
 type ExternalLinkIconProps = {
   className: string;
@@ -99,7 +100,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </ul>
 
       <h3 className={styles.title}>{project.title}</h3>
-      <p className={styles.description}>{project.description[locale]}</p>
+      <p className={styles.description}>{bindShortWords(project.description[locale])}</p>
       {project.stack && project.stack.length > 0 && (
         <p className={styles.stack}>{project.stack.join(', ')}</p>
       )}
