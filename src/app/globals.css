@@ -49,6 +49,11 @@
   /* Висота закріпленого header. На неї ж — scroll-padding-top: секція після переходу з меню
      і елемент у фокусі не ховаються під header */
   --header-height: 76px;
+  /* Header після прокрутки: кнопки 44px (з 1024 — 48px) лишаються з невеликим запасом */
+  --header-height-compact: 64px;
+  --header-padding-block-compact: 10px;
+  /* За перші скільки px прокрутки header стискається до компактного */
+  --header-compact-scroll-range: 80px;
   --section-padding-block: 40px;
   --grid-gap: 24px;
 
@@ -85,6 +90,7 @@
 @media (min-width: 1024px) {
   :root {
     --header-height: 88px;
+    --header-height-compact: 72px;
   }
 }
 
@@ -107,6 +113,16 @@
 html {
   scroll-padding-top: var(--header-height);
   -webkit-text-size-adjust: 100%;
+}
+
+/*
+ * Де header стискається (Header.module.css), відступ — на компактну висоту: ціль прокрутки браузер
+ * рахує на старті, поки header ще повний, а доїжджає сторінка вже з компактним — лишалася б щілина
+ */
+@supports (animation-timeline: scroll()) {
+  html {
+    scroll-padding-top: var(--header-height-compact);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

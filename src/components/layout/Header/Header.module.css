@@ -1,6 +1,7 @@
 /*
  * Закріплений угорі й завжди на екрані: без JS, без «стрибків» при прокрутці.
- * Висота — токен --header-height: на ньому ж тримається scroll-padding-top у globals.css
+ * Висота — токен --header-height, після прокрутки — --header-height-compact (див. нижче);
+ * на них же тримається scroll-padding-top у globals.css
  */
 .header {
   position: sticky;
@@ -23,6 +24,36 @@
   z-index: -1;
   background: color-mix(in srgb, var(--color-bg) 85%, transparent);
   backdrop-filter: blur(12px);
+}
+
+/*
+ * Після прокрутки header стискається разом із нею — scroll-driven animation, без JS.
+ * Лонгхенди замість animation: шортхенд скидає animation-timeline, і порядок рядків став би важливим.
+ * Де scroll-driven animations нема (напр. Firefox), header просто лишається повної висоти
+ */
+@supports (animation-timeline: scroll()) {
+  .header {
+    animation-name: shrink;
+    animation-duration: auto;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll(root);
+    animation-range: 0 var(--header-compact-scroll-range);
+  }
+}
+
+/*
+ * Header стоїть у потоці сторінки, тож на скільки він нижчає, на стільки росте margin-bottom:
+ * місце під ним не змінюється, і контент не смикається вгору.
+ * --header-padding-block успадковує мобільне меню: «закрити» стає врівень із бургером
+ */
+@keyframes shrink {
+  to {
+    --header-padding-block: var(--header-padding-block-compact);
+
+    height: var(--header-height-compact);
+    margin-bottom: calc(var(--header-height) - var(--header-height-compact));
+  }
 }
 
 .inner {
